@@ -21,11 +21,18 @@
     bottom: 1%;
     z-index: 0;
     pointer-events: none;
+}
+
+/* Map container - relative positioning for markers */
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
     transform: scale(0.8);
     transform-origin: center center;
 }
 
-.territory-map-bg img {
+.map-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -70,19 +77,14 @@
     );
 }
 
-/* Markers: pointer-events back on, above fades */
-.map-markers {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    pointer-events: all;
-}
-
+/* Markers: positioned relative to map image */
 .map-marker {
     position: absolute;
     cursor: pointer;
     transition: transform 0.25s ease;
     transform: scale(1.4);
+    z-index: 3;
+    pointer-events: all;
 }
 .map-marker:hover { transform: scale(1.4) translateY(-2px); }
 
