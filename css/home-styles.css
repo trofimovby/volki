@@ -279,7 +279,7 @@ h1, h2, h3 {
 .hero {
     position: relative;
     height: 834px;
-    background-image: url('figma-exports/hero-bg.png');
+    background-image: url('../assets/images/hero-bg.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -598,7 +598,7 @@ h1, h2, h3 {
 }
 
 .find-territory-card {
-    background-image: url('figma-exports/find-territory-bg.png');
+    background-image: url('../assets/images/find-territory-bg.png');
     background-size: cover;
     background-position: center;
     border-radius: 4px;
