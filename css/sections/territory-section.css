@@ -81,12 +81,27 @@
 .map-marker {
     position: absolute;
     cursor: pointer;
-    transition: transform 0.25s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
     transform: scale(1.4);
     z-index: 3;
     pointer-events: all;
 }
-.map-marker:hover { transform: scale(1.4) translateY(-2px); }
+.map-marker:hover {
+    transform: scale(1.55) translateY(-8px);
+    filter: drop-shadow(0 8px 16px rgba(30, 48, 32, 0.4));
+}
+
+.map-marker svg {
+    transition: all 0.3s ease;
+}
+
+.map-marker:hover svg circle:first-child {
+    fill: #2d4939;
+}
+
+.map-marker:hover svg path {
+    fill: #2d4939;
+}
 
 /* Tune these % values to align with actual map image */
 .marker-zhukovka  { top: 25%; left: 75%; }
@@ -107,6 +122,13 @@
     font-weight: 700;
     letter-spacing: 1.3px;
     white-space: nowrap;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.map-marker:hover .marker-label {
+    background: #2d4939;
+    color: #fff;
+    transform: translateX(-50%) translateY(2px);
 }
 
 /* ─────────────────────────────────────────
