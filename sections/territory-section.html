@@ -35,16 +35,24 @@
         /* ─── MAP: absolute, covers right ~65% of section ─── */
         .territory-map-bg {
             position: absolute;
-            /* Start from ~35% so it bleeds under cards */
-            left: 28%;
-            top: 0;
-            right: -80px; /* bleed past viewport edge */
-            bottom: 0;
+            left: 5%;
+            top: 30%;
+            right: -40px;
+            bottom: 1%;
             z-index: 0;
             pointer-events: none;
         }
 
-        .territory-map-bg img {
+        /* Map container - relative positioning for markers */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform: scale(0.8);
+            transform-origin: center center;
+        }
+
+        .map-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -58,13 +66,17 @@
             position: absolute;
             inset: 0;
             z-index: 2;
+            pointer-events: none;
             background: linear-gradient(
                 to right,
                 #f7f5ec 0%,
                 rgba(247,245,236,0.92) 8%,
                 rgba(247,245,236,0.55) 22%,
                 rgba(247,245,236,0.15) 40%,
-                transparent 58%
+                transparent 58%,
+                transparent 85%,
+                rgba(247,245,236,0.3) 92%,
+                #f7f5ec 100%
             );
         }
 
@@ -74,35 +86,48 @@
             position: absolute;
             inset: 0;
             z-index: 2;
+            pointer-events: none;
             background: linear-gradient(
                 to bottom,
                 #f7f5ec 0%,
                 rgba(247,245,236,0.7) 10%,
                 transparent 25%,
-                transparent 72%,
-                rgba(247,245,236,0.6) 88%,
+                transparent 65%,
+                rgba(247,245,236,0.5) 80%,
+                rgba(247,245,236,0.8) 92%,
                 #f7f5ec 100%
             );
         }
 
-        /* Markers: pointer-events back on, above fades */
-        .map-markers {
-            position: absolute;
-            inset: 0;
-            z-index: 3;
-            pointer-events: all;
-        }
-
+        /* Markers: positioned relative to map image */
         .map-marker {
             position: absolute;
             cursor: pointer;
-            transition: transform 0.25s ease;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            transform: scale(1.4);
+            z-index: 3;
+            pointer-events: all;
         }
-        .map-marker:hover { transform: scale(1.08) translateY(-2px); }
+        .map-marker:hover {
+            transform: scale(1.55) translateY(-8px);
+            filter: drop-shadow(0 8px 16px rgba(30, 48, 32, 0.4));
+        }
+
+        .map-marker svg {
+            transition: all 0.3s ease;
+        }
+
+        .map-marker:hover svg circle:first-child {
+            fill: #2d4939;
+        }
+
+        .map-marker:hover svg path {
+            fill: #2d4939;
+        }
 
         /* Tune these % values to align with actual map image */
-        .marker-zhukovka  { top: 40%; left: 20%; }
-        .marker-yukhnovka { top: 52%; left: 30%; }
+        .marker-zhukovka  { top: 25%; left: 75%; }
+        .marker-yukhnovka { top: 56%; left: 82%; }
 
         .marker-label {
             position: absolute;
@@ -119,6 +144,13 @@
             font-weight: 700;
             letter-spacing: 1.3px;
             white-space: nowrap;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .map-marker:hover .marker-label {
+            background: #2d4939;
+            color: #fff;
+            transform: translateX(-50%) translateY(2px);
         }
 
         /* ─────────────────────────────────────────
@@ -142,13 +174,20 @@
 
         .title-regular {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 72px; font-weight: 400;
-            color: #1a2818; letter-spacing: -1px; line-height: 1.05;
+            font-size: 64px;
+            font-weight: 500;
+            color: #1a2818;
+            letter-spacing: -1px;
+            line-height: 1.05;
         }
         .title-italic {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 72px; font-weight: 500; font-style: italic;
-            color: #1a2818; letter-spacing: -1px; line-height: 1.05;
+            font-size: 64px;
+            font-weight: 500;
+            font-style: italic;
+            color: #1a2818;
+            letter-spacing: -1px;
+            line-height: 1.05;
         }
 
         .territory-description {
@@ -178,11 +217,12 @@
             border-radius: 6px;
             overflow: hidden;
             box-shadow: 0 4px 32px rgba(120,100,65,0.18);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
         .location-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 44px rgba(120,100,65,0.26);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 48px rgba(120,100,65,0.28);
         }
 
         .location-image {
@@ -190,6 +230,10 @@
         }
         .location-image img {
             width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform 0.4s ease;
+        }
+        .location-card:hover .location-image img {
+            transform: scale(1.08);
         }
 
         .location-info {
@@ -230,14 +274,23 @@
         .feature-item span { font-size: 11px; color: #2d4939; letter-spacing: 0.1px; }
 
         .location-button {
-            width: 100%; padding: 12px;
+            width: 100%; padding: 11px;
             background: #07261e; border: none; border-radius: 3px;
             color: #fff; font-family: 'Manrope', sans-serif;
             font-size: 9.5px; font-weight: 700;
             letter-spacing: 1.8px; text-transform: uppercase;
-            cursor: pointer; transition: background 0.25s, transform 0.2s;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
         }
-        .location-button:hover { background: #0d3a2c; transform: translateY(-1px); }
+        .location-button:hover {
+            background: #0d3a2c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(7, 38, 30, 0.3);
+        }
+        .location-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(7, 38, 30, 0.2);
+        }
 
         /* ─────────────────────────────────────────
            RESPONSIVE
@@ -273,11 +326,11 @@
 
 <section id="territory" class="territory-section">
 
-    <!-- ── MAP: absolute background, bleeds under cards ── -->
+    <!-- ── MAP: relative container with absolute markers ── -->
     <div class="territory-map-bg">
-        <img src="figma-exports/territory-map-clean.png" alt="Карта территорий VOLKI">
+        <div class="map-container">
+            <img src="../assets/images/territory-map-clean.png" alt="Карта территорий VOLKI">
 
-        <div class="map-markers">
             <!-- ЖУКОВКА -->
             <div class="map-marker marker-zhukovka">
                 <svg width="50" height="70" viewBox="0 0 50 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -326,7 +379,7 @@
                 <!-- Юхновка -->
                 <div class="location-card">
                     <div class="location-image">
-                        <img src="figma-exports/yukhnovka-photo.png" alt="Юхновка">
+                        <img src="../assets/images/yukhnovka-photo.png" alt="Юхновка">
                     </div>
                     <div class="location-info">
                         <div class="location-header">
@@ -376,7 +429,7 @@
                 <!-- Жуковка -->
                 <div class="location-card">
                     <div class="location-image">
-                        <img src="figma-exports/zhukovka-photo.png" alt="Жуковка">
+                        <img src="../assets/images/zhukovka-photo.png" alt="Жуковка">
                     </div>
                     <div class="location-info">
                         <div class="location-header">
