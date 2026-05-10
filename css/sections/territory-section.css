@@ -30,6 +30,7 @@
     height: 100%;
     transform: scale(0.8);
     transform-origin: center center;
+    pointer-events: none;
 }
 
 .map-container img {
@@ -40,7 +41,7 @@
     display: block;
 }
 
-/* LEFT fade — dissolves map into the bg color where cards are */
+/* LEFT + RIGHT fade — dissolves map edges into bg color */
 .territory-map-bg::before {
     content: '';
     position: absolute;
@@ -53,9 +54,11 @@
         rgba(247,245,236,0.92) 8%,
         rgba(247,245,236,0.55) 22%,
         rgba(247,245,236,0.15) 40%,
-        transparent 58%,
-        transparent 85%,
-        rgba(247,245,236,0.3) 92%,
+        transparent 55%,
+        transparent 72%,
+        rgba(247,245,236,0.4) 80%,
+        rgba(247,245,236,0.75) 88%,
+        rgba(247,245,236,0.93) 94%,
         #f7f5ec 100%
     );
 }
@@ -83,18 +86,39 @@
 .map-marker {
     position: absolute;
     cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    transform: scale(1.4);
-    z-index: 3;
-    pointer-events: all;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+    transform: scale(1.4) translateY(0px);
+    transform-origin: center bottom;
+    z-index: 10;
+    pointer-events: all !important;
 }
 .map-marker:hover {
-    transform: scale(1.55) translateY(-8px);
-    filter: drop-shadow(0 8px 16px rgba(30, 48, 32, 0.4));
+    transform: scale(1.65) translateY(-8px);
+    filter: drop-shadow(0 10px 20px rgba(30, 48, 32, 0.55));
 }
 
 .map-marker svg {
     transition: all 0.3s ease;
+}
+
+/* Pulse ring animation on marker hover */
+.map-marker::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -60%) scale(0);
+    border-radius: 50%;
+    background: rgba(30, 48, 32, 0.15);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+    opacity: 0;
+    z-index: -1;
+}
+.map-marker:hover::before {
+    transform: translate(-50%, -60%) scale(2.2);
+    opacity: 1;
 }
 
 .map-marker:hover svg circle:first-child {
@@ -105,9 +129,90 @@
     fill: #2d4939;
 }
 
+/* ─── MAP MARKERS LAYER — отдельный слой поверх карты ─── */
+.map-markers-layer {
+    position: absolute;
+    left: 5%;
+    top: 30%;
+    right: -40px;
+    bottom: 1%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* маркеры внутри слоя — кликабельны */
+.map-markers-layer .map-marker {
+    pointer-events: all;
+}
+
 /* Tune these % values to align with actual map image */
 .marker-zhukovka  { top: 25%; left: 75%; }
 .marker-yukhnovka { top: 56%; left: 82%; }
+
+/* ─── TOOLTIP КАРТОЧКА ─── */
+.marker-tooltip {
+    position: absolute;
+    bottom: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: #1e3020;
+    border: 1px solid rgba(154, 165, 114, 0.35);
+    border-radius: 5px;
+    padding: 10px 14px;
+    width: 180px;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 0.32s ease,
+        transform 0.38s cubic-bezier(0.34, 1.3, 0.64, 1);
+    z-index: 20;
+    box-shadow: 0 12px 32px rgba(10, 25, 12, 0.45);
+}
+
+/* Стрелочка вниз */
+.marker-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #1e3020;
+}
+
+.marker-tooltip-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+    color: #d4cfa8;
+    margin-bottom: 3px;
+    line-height: 1;
+}
+
+.marker-tooltip-meta {
+    font-family: 'Manrope', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: rgba(154, 165, 114, 0.8);
+    text-transform: uppercase;
+    margin-bottom: 7px;
+}
+
+.marker-tooltip-desc {
+    font-family: 'Manrope', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(212, 207, 168, 0.65);
+    line-height: 1.45;
+}
+
+/* Показываем tooltip при наведении на маркер */
+.map-marker:hover .marker-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
 
 .marker-label {
     position: absolute;
@@ -198,12 +303,25 @@
     border-radius: 6px;
     overflow: hidden;
     box-shadow: 0 4px 32px rgba(120,100,65,0.18);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1), box-shadow 0.4s ease;
     cursor: pointer;
+    position: relative;
+}
+.location-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease;
+    pointer-events: none;
 }
 .location-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 48px rgba(120,100,65,0.28);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 56px rgba(120,100,65,0.30);
+}
+.location-card:hover::after {
+    border-color: rgba(154, 165, 114, 0.35);
 }
 
 .location-image {

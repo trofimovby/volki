@@ -403,25 +403,81 @@
     </div>
 </section>
 
-    <!-- Find Territory CTA Section -->
-    <section class="find-territory-section">
-        <div class="container">
-            <div class="find-territory-card">
-                <div class="card-content">
-                    <h2 class="card-title">
-                        <span class="title-regular">Найти свою</span>
-                        <span class="title-regular">территорию</span>
-                    </h2>
-                    <p class="card-description">
-                        Каждая наша территория имеет свой характер. Доверьтесь нашим экспертам: мы подберем локацию,
-                    </p>
-                    <button class="cta-button">
-                        <span>Найти свое время</span>
-                        <svg width="19" height="16" viewBox="0 0 19 16" fill="none">
-                            <circle cx="2.5" cy="8" r="1.5" stroke="white"/>
-                            <path d="M5 8h13M14 4l4 4-4 4" stroke="white" stroke-width="1"/>
-                        </svg>
-                    </button>
+    <!-- Find Territory Section -->
+    <section id="new-locations" class="find-territory-section">
+        <!-- Верхний блок с фоном и текстом -->
+        <div class="find-territory-hero">
+            <div class="hero-content">
+                <h2 class="hero-title">
+                    <span class="title-regular">Найти свою</span>
+                    <span class="title-italic">территорию</span>
+                </h2>
+                <p class="hero-description">
+                    Каждая наша территория имеет свой характер. Доверьтесь нашим экспертам: мы подберем локацию,
+                </p>
+                <button class="hero-button">
+                    <span class="button-text"> НАЙТИ СВОЕ ВРЕМЯ</span>
+                    <svg class="button-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 10h12m-4-4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <svg class="hero-wave" viewBox="0 0 1300 82" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0 0 Q325 20 650 10 T1300 0 L1300 82 L0 82 Z" fill="#f4f3eb"/>
+            </svg>
+        </div>
+
+        <!-- Нижний блок с городами -->
+        <div class="find-territory-cities">
+            <div class="cities-header">
+                <h3 class="cities-title">
+                    <span class="title-regular">Новые локации</span><br>
+                    <span class="title-italic">Скоро в Бресте и Гродно</span>
+                </h3>
+            </div>
+
+            <div class="cities-list">
+                <!-- Timeline line -->
+                <div class="cities-timeline"></div>
+
+                <!-- Юхновка -->
+                <div class="city-item active">
+                    <div class="city-icon">
+                        <div class="icon-circle">
+                            <div class="icon-dot"></div>
+                        </div>
+                    </div>
+                    <div class="city-name">ЮХНОВКА</div>
+                </div>
+
+                <!-- Жуковка -->
+                <div class="city-item active">
+                    <div class="city-icon">
+                        <div class="icon-circle">
+                            <div class="icon-dot"></div>
+                        </div>
+                    </div>
+                    <div class="city-name">ЖУКОВКА</div>
+                </div>
+
+                <!-- Брест -->
+                <div class="city-item upcoming">
+                    <div class="city-icon">
+                        <div class="icon-circle">
+                            <div class="icon-dot empty"></div>
+                        </div>
+                    </div>
+                    <div class="city-name">БРЕСТ</div>
+                </div>
+
+                <!-- Гродно -->
+                <div class="city-item upcoming">
+                    <div class="city-icon">
+                        <div class="icon-circle">
+                            <div class="icon-dot empty"></div>
+                        </div>
+                    </div>
+                    <div class="city-name">ГРОДНО</div>
                 </div>
             </div>
         </div>
@@ -622,6 +678,7 @@
             <p class="footer-text">Иммерсивное пространство, где ритуалы парения становятся искусством, наполняя вас энергией и внутренним балансом</p>
         </div>
     </footer>
+
 
     <script src="js/home-script.js"></script>
 </main>
