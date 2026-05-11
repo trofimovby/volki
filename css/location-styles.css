@@ -1,0 +1,1316 @@
+/* ============================================
+   Location Page Styles
+   ============================================ */
+
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: #fbfaf1;
+    color: #353535;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   Mobile Menu Toggle
+   ============================================ */
+
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    background: #1f2626;
+    border: none;
+    border-radius: 8px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: #fbfaf1;
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   Sidebar Menu
+   ============================================ */
+
+.sidebar-menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 302px;
+    height: 100vh;
+    background: #1f2626;
+    border-radius: 0 32px 32px 0;
+    z-index: 1000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-menu::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb {
+    background: rgba(157, 143, 123, 0.5);
+    border-radius: 3px;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb:hover {
+    background: rgba(157, 143, 123, 0.7);
+}
+
+.sidebar-content {
+    padding: 24px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    min-height: 0;
+}
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar-logo {
+    margin-bottom: 0;
+}
+
+.sidebar-logo img {
+    height: 22px;
+    width: auto;
+}
+
+.sidebar-nav-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fbfaf1;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.sidebar-nav-header:hover {
+    color: #9d8f7b;
+}
+
+.sidebar-nav-header svg {
+    transition: transform 0.3s ease;
+}
+
+.sidebar-nav-header:hover svg {
+    transform: translateY(2px);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 0;
+}
+
+.nav-link {
+    font-size: 14px;
+    line-height: 1;
+    color: #8c928b;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    padding: 3px 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #fbfaf1;
+    padding-left: 8px;
+}
+
+.nav-link.active {
+    font-weight: 700;
+}
+
+.sidebar-section {
+    margin-top: 0;
+}
+
+.sidebar-section-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #9d8f7b;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.sidebar-section-header:hover {
+    color: #b5a68f;
+}
+
+.sidebar-section-header svg {
+    transition: transform 0.3s ease;
+}
+
+.sidebar-section-header:hover svg {
+    transform: translateY(2px);
+}
+
+.sidebar-divider {
+    width: 100%;
+    height: 1px;
+    background: #353535;
+    margin: 0;
+}
+
+.sidebar-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contacts-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #57534e;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.35;
+    color: #9d8f7b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+    color: #b5a68f;
+}
+
+.contact-item svg {
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.sidebar-social {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    width: 36px;
+    height: 36px;
+    background: #2d2925;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: #3d3935;
+    transform: translateY(-2px);
+}
+
+.social-link svg {
+    width: 18px;
+    height: 18px;
+}
+
+.sidebar-cta {
+    width: 100%;
+    padding: 9px 16px;
+    background: transparent;
+    border: 1px solid #9d8f7b;
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: 'Manrope', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebar-cta:hover {
+    background: rgba(157, 143, 123, 0.2);
+    border-color: #b5a68f;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   Main Content
+   ============================================ */
+
+.main-content {
+    margin-left: 302px;
+    min-height: 100vh;
+}
+
+/* Контейнер */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ============================================
+   Location Hero Section
+   ============================================ */
+
+.location-hero {
+    position: relative;
+    width: 100%;
+    background-color: #fbfaf1;
+    padding: 40px 0 120px 0;
+    overflow: hidden;
+}
+
+/* Верхняя часть (кнопка назад + бейдж) */
+.location-hero-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Кнопка назад */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #353535;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.back-button:hover {
+    opacity: 0.7;
+}
+
+.back-button svg {
+    flex-shrink: 0;
+}
+
+/* Вращающийся бейдж */
+.rotating-badge {
+    position: relative;
+    width: 95px;
+    height: 95px;
+}
+
+.rotating-text {
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.badge-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: #f4f3eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Заголовок над колонками */
+.location-hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 54px;
+    line-height: 1.1;
+    margin: 0 0 40px 0;
+    color: #353535;
+}
+
+.location-hero-title .title-regular {
+    font-weight: 500;
+    font-style: normal;
+    display: block;
+}
+
+.location-hero-title .title-italic {
+    font-weight: 500;
+    font-style: italic;
+    display: block;
+}
+
+/* Основной контент (две колонки) */
+.location-hero-content {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* Левая колонка */
+.location-hero-left {
+    flex: 0 0 52%;
+    display: flex;
+    flex-direction: column;
+}
+
+.location-hero-image {
+    width: 100%;
+    aspect-ratio: 4/2.5;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.location-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Правая колонка */
+.location-hero-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.location-hero-description {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #57534e;
+    margin: 0;
+}
+
+/* Список преимуществ */
+.location-features {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.location-feature {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #2d4939;
+    margin: 0 0 8px 0;
+}
+
+.feature-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #8c928b;
+    margin: 0;
+}
+
+/* Волнообразный разделитель */
+.location-hero-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ============================================
+   Location Baths Section
+   ============================================ */
+
+.location-baths {
+    position: relative;
+    width: 100%;
+    background-color: #f4f3eb;
+    padding: 100px 0;
+}
+
+/* Заголовок */
+.location-baths-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 54px;
+    line-height: 1.1;
+    margin: 0 0 48px 0;
+    color: #353535;
+}
+
+.location-baths-title .title-regular {
+    font-weight: 500;
+    font-style: normal;
+}
+
+.location-baths-title .title-italic {
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Сетка карточек */
+.baths-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Карточка бани */
+.bath-card {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    height: 100%;
+}
+
+/* Блок с фото */
+.bath-card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.bath-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Название бани поверх фото */
+.bath-card-name {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 8px 16px;
+    border-radius: 2px;
+    backdrop-filter: blur(4px);
+}
+
+/* Навигация слайдера */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.slider-arrow:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.slider-arrow-left {
+    left: 16px;
+}
+
+.slider-arrow-right {
+    right: 16px;
+}
+
+/* Точки пагинации */
+.slider-dots {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #ffffff;
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* Текст-описание */
+.bath-card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 20px;
+}
+
+.bath-card-description {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #57534e;
+    margin: 0;
+}
+
+/* Сетка характеристик */
+.bath-card-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: #edece3;
+    border-radius: 2px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #57534e;
+}
+
+.spec-icon {
+    flex-shrink: 0;
+}
+
+/* Кнопка */
+.bath-card-button {
+    width: 100%;
+    padding: 14px 24px;
+    background: #0a1c14;
+    margin-top: auto;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.bath-card-button:hover {
+    background: #0f2a1f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(10, 28, 20, 0.3);
+}
+
+/* ============================================
+   Responsive (Tablet)
+   ============================================ */
+
+@media (max-width: 1024px) {
+    /* Карточки в 2 колонки */
+    .baths-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Показываем кнопку-гамбургер */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Скрываем sidebar по умолчанию */
+    .sidebar-menu {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar-menu.active {
+        transform: translateX(0);
+    }
+
+    /* Убираем отступ слева у main-content */
+    .main-content {
+        margin-left: 0;
+    }
+
+    .container {
+        padding: 0 24px;
+    }
+
+    /* Location Hero */
+    .location-hero {
+        padding: 40px 0 80px 0;
+    }
+
+    .location-hero-header {
+        margin-bottom: 40px;
+    }
+
+    .rotating-badge {
+        width: 80px;
+        height: 80px;
+    }
+
+    .rotating-badge svg {
+        width: 80px;
+        height: 80px;
+    }
+
+    .badge-center {
+        width: 35px;
+        height: 35px;
+    }
+
+    .badge-center svg {
+        width: 14px;
+        height: 12px;
+    }
+
+    .location-hero-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .location-hero-left {
+        flex: 1;
+    }
+
+    .location-hero-title {
+        font-size: 42px;
+    }
+
+    .location-hero-description {
+        font-size: 15px;
+    }
+
+    .location-hero-divider {
+        height: 40px;
+    }
+
+    /* Location Baths */
+    .location-baths {
+        padding: 80px 0;
+    }
+
+    .location-baths-title {
+        font-size: 42px;
+        margin-bottom: 36px;
+    }
+
+    /* Карточки в 1 колонку */
+    .baths-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    /* Location Hero */
+    .location-hero {
+        padding: 32px 0 60px 0;
+    }
+
+    .location-hero-header {
+        margin-bottom: 32px;
+    }
+
+    .back-button {
+        font-size: 13px;
+    }
+
+    .rotating-badge {
+        width: 70px;
+        height: 70px;
+    }
+
+    .rotating-badge svg {
+        width: 70px;
+        height: 70px;
+    }
+
+    .badge-center {
+        width: 30px;
+        height: 30px;
+    }
+
+    .badge-center svg {
+        width: 12px;
+        height: 10px;
+    }
+
+    .location-hero-title {
+        font-size: 36px;
+    }
+
+    .location-hero-description {
+        font-size: 14px;
+    }
+
+    .feature-title {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .feature-text {
+        font-size: 13px;
+    }
+
+    .location-hero-divider {
+        height: 30px;
+    }
+
+    /* Location Baths */
+    .location-baths {
+        padding: 60px 0;
+    }
+
+    .location-baths-title {
+        font-size: 36px;
+        margin-bottom: 28px;
+    }
+
+    .bath-card-name {
+        font-size: 10px;
+        padding: 6px 12px;
+        top: 16px;
+        left: 16px;
+    }
+
+    .slider-arrow {
+        width: 36px;
+        height: 36px;
+    }
+
+    .slider-arrow svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .bath-card-description {
+        font-size: 13px;
+    }
+
+    .spec-item {
+        font-size: 11px;
+        padding: 8px 10px;
+    }
+
+    .bath-card-button {
+        padding: 12px 20px;
+        font-size: 10px;
+    }
+}
+
+/* ============================================
+   Certificates Section
+   ============================================ */
+
+.certificates-section {
+    position: relative;
+    width: 100%;
+    background-color: #edece3;
+    padding: 100px 0 120px 0;
+    overflow: hidden;
+}
+
+/* Контент (две колонки) */
+.certificates-content {
+    display: flex;
+    gap: 60px;
+    align-items: stretch;
+}
+
+/* Левая колонка */
+.certificates-left {
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.certificates-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 54px;
+    line-height: 1.1;
+    margin: 0;
+    color: #353535;
+}
+
+.certificates-title .title-regular {
+    font-weight: 500;
+    font-style: normal;
+    display: block;
+}
+
+.certificates-title .title-italic {
+    font-weight: 500;
+    font-style: italic;
+    display: block;
+}
+
+/* Кнопка */
+.certificates-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: #0a1c14;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.certificates-button:hover {
+    background: #0f2a1f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(10, 28, 20, 0.3);
+}
+
+/* Разделитель */
+.certificates-divider {
+    width: 100%;
+    height: 1px;
+    background: #e6e5db;
+    margin: 8px 0;
+}
+
+/* Список доставки */
+.certificates-delivery {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.delivery-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #57534e;
+}
+
+.delivery-icon {
+    flex-shrink: 0;
+}
+
+/* Инфо-блок */
+.certificates-info-box {
+    background: #edece3;
+    padding: 30px;
+    border-radius: 4px;
+    margin-top: auto;
+}
+
+.info-box-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #353535;
+    margin: 0 0 12px 0;
+}
+
+.info-box-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #5d5140;
+    margin: 0;
+}
+
+/* Правая колонка */
+.certificates-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.certificates-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Волнообразный разделитель снизу */
+.certificates-divider-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ============================================
+   Contact Form Section
+   ============================================ */
+
+.contact-form-section {
+    position: relative;
+    width: 100%;
+    min-height: 700px;
+    background-image: url('../assets/images/help.png');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Контент (две колонки) */
+.contact-form-content {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+}
+
+/* Левая колонка (Заголовок) */
+.contact-form-left {
+    flex: 0 0 45%;
+    padding-bottom: 0;
+}
+
+.contact-form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    line-height: 1.1;
+    margin: 0;
+    color: #ffffff;
+}
+
+.contact-form-title .title-regular {
+    font-weight: 500;
+    font-style: normal;
+    display: block;
+}
+
+.contact-form-title .title-italic {
+    font-weight: 500;
+    font-style: italic;
+    display: block;
+}
+
+/* Правая колонка (Форма) */
+.contact-form-right {
+    flex: 1;
+}
+
+.contact-form-card {
+    background: #f4f3eb;
+    padding: 48px 40px;
+    border-radius: 4px;
+}
+
+.form-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #353535;
+    margin: 0 0 12px 0;
+}
+
+.form-card-title .title-italic {
+    font-style: italic;
+}
+
+.form-card-subtitle {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #8c928b;
+    margin: 0 0 32px 0;
+}
+
+/* Форма */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #8c928b;
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: #ffffff;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    color: #353535;
+    transition: box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(10, 28, 20, 0.2);
+}
+
+.form-submit-button {
+    width: 100%;
+    padding: 16px 24px;
+    background: #0a1c14;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 12px;
+}
+
+.form-submit-button:hover {
+    background: #0f2a1f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(10, 28, 20, 0.3);
+}
+
+/* ============================================
+   Responsive - Certificates Section
+   ============================================ */
+
+@media (max-width: 768px) {
+    .certificates-section {
+        padding: 80px 0 100px 0;
+    }
+
+    .certificates-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .certificates-left {
+        flex: 1;
+    }
+
+    .certificates-title {
+        font-size: 42px;
+    }
+
+    .certificates-button {
+        width: 100%;
+    }
+
+    .certificates-divider-bottom {
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .certificates-section {
+        padding: 60px 0 80px 0;
+    }
+
+    .certificates-title {
+        font-size: 36px;
+    }
+
+    .certificates-button {
+        padding: 12px 24px;
+        font-size: 10px;
+    }
+
+    .delivery-item {
+        font-size: 13px;
+    }
+
+    .info-box-title {
+        font-size: 11px;
+    }
+
+    .info-box-text {
+        font-size: 13px;
+    }
+
+    .certificates-info-box {
+        padding: 24px;
+    }
+
+    .certificates-divider-bottom {
+        height: 30px;
+    }
+}
+
+/* ============================================
+   Responsive - Contact Form Section
+   ============================================ */
+
+@media (max-width: 768px) {
+    .contact-form-section {
+        min-height: auto;
+        padding: 60px 0;
+    }
+
+    .contact-form-content {
+        flex-direction: column;
+        gap: 40px;
+        align-items: stretch;
+    }
+
+    .contact-form-left {
+        flex: 1;
+        padding-bottom: 0;
+    }
+
+    .contact-form-title {
+        font-size: 48px;
+    }
+
+    .contact-form-card {
+        padding: 40px 32px;
+    }
+
+    .form-card-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form-section {
+        padding: 40px 0;
+    }
+
+    .contact-form-title {
+        font-size: 36px;
+    }
+
+    .contact-form-card {
+        padding: 32px 24px;
+    }
+
+    .form-card-title {
+        font-size: 24px;
+    }
+
+    .form-card-subtitle {
+        font-size: 13px;
+        margin-bottom: 24px;
+    }
+
+    .form-submit-button {
+        padding: 14px 20px;
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,224 @@
+/* ============================================
+   Masterclass Section (Мастер-классы)
+   ============================================ */
+
+.masterclass-section {
+    position: relative;
+    width: 100%;
+    background-color: #f4f3eb;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Горные разделители (SVG) */
+.masterclass-divider {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.masterclass-divider-top {
+    top: 0;
+    transform: scaleY(-1);
+}
+
+.masterclass-divider-bottom {
+    bottom: 0;
+}
+
+/* Контейнер с ограничением ширины */
+.masterclass-section .container {
+    position: relative;
+    z-index: 2;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+/* Основной лэйаут: две колонки */
+.masterclass-content {
+    display: flex;
+    gap: 60px;
+    align-items: stretch;
+}
+
+/* Левая колонка (текст) */
+.masterclass-left {
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Заголовок */
+.masterclass-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 54px;
+    line-height: 1.1;
+    margin: 0;
+    color: #353535;
+}
+
+.masterclass-title .title-regular {
+    font-weight: 500;
+    font-style: normal;
+    display: block;
+}
+
+.masterclass-title .title-italic {
+    font-weight: 500;
+    font-style: italic;
+    display: block;
+}
+
+/* Кнопка */
+.masterclass-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: #0a1c14;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.masterclass-button:hover {
+    background: #0f2a1f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(10, 28, 20, 0.3);
+}
+
+/* Элемент списка */
+.masterclass-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid #e6e5db;
+}
+
+.masterclass-feature-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.masterclass-feature-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #57534e;
+}
+
+/* Инфо-блок */
+.masterclass-info-box {
+    background: #edece3;
+    padding: 24px;
+    border-radius: 4px;
+    margin-top: auto;
+}
+
+.masterclass-info-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #5d5140;
+    margin: 0;
+}
+
+/* Правая колонка (картинка) */
+.masterclass-right {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+}
+
+.masterclass-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* ============================================
+   Responsive (Mobile)
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Уменьшаем высоту горных разделителей на мобильных */
+    .masterclass-divider {
+        height: 40px;
+    }
+
+    .masterclass-section .container {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    /* Колонки друг под другом */
+    .masterclass-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .masterclass-left {
+        flex: 1;
+    }
+
+    .masterclass-right {
+        flex: 1;
+        min-height: 300px;
+    }
+
+    /* Заголовок меньше */
+    .masterclass-title {
+        font-size: 42px;
+    }
+
+    /* Инфо-блок */
+    .masterclass-info-box {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Еще меньше высота разделителей */
+    .masterclass-divider {
+        height: 30px;
+    }
+
+    .masterclass-section .container {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .masterclass-title {
+        font-size: 36px;
+    }
+
+    .masterclass-button {
+        width: 100%;
+        padding: 12px 24px;
+        font-size: 10px;
+    }
+
+    .masterclass-feature-text {
+        font-size: 13px;
+    }
+
+    .masterclass-info-text {
+        font-size: 13px;
+    }
+}

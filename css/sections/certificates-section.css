@@ -1,0 +1,261 @@
+/* ============================================
+   Certificates Section (Подарочные сертификаты)
+   ============================================ */
+
+.certificates-section {
+    position: relative;
+    width: 100%;
+    background-color: #fbfaf1;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Горные разделители (SVG) */
+.certificates-divider {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.certificates-divider-top {
+    top: 0;
+    transform: scaleY(-1);
+}
+
+.certificates-divider-bottom {
+    bottom: 0;
+}
+
+/* Контейнер с ограничением ширины */
+.certificates-section .container {
+    position: relative;
+    z-index: 2;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+/* Основной лэйаут: две колонки */
+.certificates-content {
+    display: flex;
+    gap: 60px;
+    align-items: stretch;
+}
+
+/* Левая колонка (текст) */
+.certificates-left {
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Заголовок */
+.certificates-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 54px;
+    line-height: 1.05;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.certificates-title .title-regular {
+    font-weight: 500;
+    font-style: normal;
+    color: #212625;
+}
+
+.certificates-title .title-italic {
+    font-weight: 500;
+    font-style: italic;
+    color: #212625;
+}
+
+/* Кнопка */
+.certificates-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: #0a1c14;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.certificates-button:hover {
+    background: #0f2a1f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(10, 28, 20, 0.3);
+}
+
+/* Список способов доставки */
+.delivery-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 20px;
+}
+
+.delivery-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.delivery-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.delivery-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #57534e;
+}
+
+/* Инфо-блок "Привилегия тишины" */
+.certificates-info-box {
+    background: #efeedd;
+    padding: 30px;
+    border-radius: 4px;
+    margin-top: auto;
+}
+
+.info-box-subtitle {
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #8c928b;
+    margin: 0 0 12px 0;
+}
+
+.info-box-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #57534e;
+    margin: 0;
+}
+
+/* Правая колонка (картинка) */
+.certificates-right {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+}
+
+.certificates-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* ============================================
+   Responsive (Mobile)
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Уменьшаем высоту горных разделителей на мобильных */
+    .certificates-divider {
+        height: 40px;
+    }
+
+    .certificates-section .container {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    /* Колонки друг под другом, картинка сверху */
+    .certificates-content {
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+
+    .certificates-left {
+        flex: 1;
+    }
+
+    .certificates-right {
+        flex: 1;
+        min-height: 300px;
+    }
+
+    /* Заголовок меньше */
+    .certificates-title {
+        font-size: 42px;
+    }
+
+    /* Список доставки в одну колонку */
+    .delivery-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    /* Инфо-блок */
+    .certificates-info-box {
+        padding: 24px;
+    }
+
+    .info-box-subtitle {
+        font-size: 12px;
+    }
+
+    .info-box-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Еще меньше высота разделителей */
+    .certificates-divider {
+        height: 30px;
+    }
+
+    .certificates-section .container {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .certificates-title {
+        font-size: 36px;
+    }
+
+    .certificates-button {
+        width: 100%;
+        padding: 12px 24px;
+        font-size: 10px;
+    }
+
+    .delivery-text {
+        font-size: 13px;
+    }
+
+    .certificates-info-box {
+        padding: 20px;
+    }
+
+    .info-box-subtitle {
+        font-size: 11px;
+    }
+
+    .info-box-text {
+        font-size: 13px;
+    }
+}

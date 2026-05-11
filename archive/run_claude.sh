@@ -2,7 +2,7 @@
 
 # Настройки для запуска через OmniRoute
 export ANTHROPIC_BASE_URL="http://localhost:20128/v1"
-export ANTHROPIC_AUTH_TOKEN="sk-8ee715e2624912c6-56d88d-bf77effa"
+export ANTHROPIC_AUTH_TOKEN="sk-8ee715e2624912c6-ead434-8d436c27"
 
 # Очищаем стандартный ключ во избежание конфликтов
 export ANTHROPIC_API_KEY=""

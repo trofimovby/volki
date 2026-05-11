@@ -9,6 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/home-styles.css">
     <link rel="stylesheet" href="css/sections/territory-section.css">
+    <link rel="stylesheet" href="css/sections/certificates-section.css">
+    <link rel="stylesheet" href="css/sections/faq-section.css">
+    <link rel="stylesheet" href="css/sections/reviews-section.css">
+    <link rel="stylesheet" href="css/sections/farm-food-section.css">
+    <link rel="stylesheet" href="css/sections/media-section.css">
+    <link rel="stylesheet" href="css/sections/masterclass-section.css">
+    <link rel="stylesheet" href="css/sections/features-section.css">
 </head>
 <body>
     <!-- Mobile Menu Toggle -->
@@ -57,6 +64,10 @@
                             <path d="M4 6l4 4 4-4" stroke="#9d8f7b" stroke-width="1.67"/>
                         </svg>
                     </div>
+                    <nav class="sidebar-nav" style="margin-top: 8px;">
+                        <a href="location.html" class="nav-link">Юхновка</a>
+                        <a href="#" class="nav-link">Жуковка</a>
+                    </nav>
                 </div>
 
                 <!-- Banya Section -->
@@ -67,6 +78,11 @@
                             <path d="M4 6l4 4 4-4" stroke="#9d8f7b" stroke-width="1.67"/>
                         </svg>
                     </div>
+                    <nav class="sidebar-nav" style="margin-top: 8px;">
+                        <a href="shale.html" class="nav-link">Шале</a>
+                        <a href="#" class="nav-link">Этнос</a>
+                        <a href="#" class="nav-link">Знахарь</a>
+                    </nav>
                 </div>
             </div>
 
@@ -341,7 +357,7 @@
                                 <span>500 кв м</span>
                             </div>
                         </div>
-                        <button class="location-button">Подробнее →</button>
+                        <button class="location-button" onclick="window.location.href='location.html'">Подробнее →</button>
                     </div>
                 </div>
 
@@ -391,7 +407,7 @@
                                 <span>500 кв м</span>
                             </div>
                         </div>
-                        <button class="location-button">Подробнее →</button>
+                        <button class="location-button" onclick="window.location.href='location.html'">Подробнее →</button>
                     </div>
                 </div>
 
@@ -416,14 +432,14 @@
                     Каждая наша территория имеет свой характер. Доверьтесь нашим экспертам: мы подберем локацию,
                 </p>
                 <button class="hero-button">
-                    <span class="button-text"> НАЙТИ СВОЕ ВРЕМЯ</span>
-                    <svg class="button-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 10h12m-4-4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <span class="button-text">НАЙТИ СВОЕ ВРЕМЯ</span>
+                    <svg class="button-icon" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 7h16M11 1l6 6-6 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
             </div>
             <svg class="hero-wave" viewBox="0 0 1300 82" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                <path d="M0 0 Q325 20 650 10 T1300 0 L1300 82 L0 82 Z" fill="#f4f3eb"/>
+                <path d="M0 82 C200 20 400 60 650 35 C900 10 1100 55 1300 30 L1300 82 Z" fill="#fbfaf1"/>
             </svg>
         </div>
 
@@ -431,7 +447,7 @@
         <div class="find-territory-cities">
             <div class="cities-header">
                 <h3 class="cities-title">
-                    <span class="title-regular">Новые локации</span><br>
+                    <span class="title-regular">Новые локации</span>
                     <span class="title-italic">Скоро в Бресте и Гродно</span>
                 </h3>
             </div>
@@ -486,48 +502,52 @@
     <!-- How Rest Works Section -->
     <section class="rest-process-section">
         <div class="container">
-            <h2 class="section-title-center">Как проходит отдых</h2>
+            <h2 class="rest-section-title">
+                <span class="title-regular">Как проходит </span><span class="title-italic">отдых</span>
+            </h2>
             <div class="rest-cards">
                 <div class="rest-card">
-                    <div class="card-text">
-                        <div class="card-header">
-                            <div class="card-number">1</div>
-                            <h3 class="card-title-italic">ПРЕДВКУШЕНИЕ РИТУАЛА</h3>
-                        </div>
-                        <p class="card-description">
-                            Мы проектируем безупречный сценарий восстановления. Ваше погружение в VOLKI начинается с чистого предвкушения, свободного от любой суеты.
-                        </p>
+                    <div class="card-header">
+                        <div class="card-number">1</div>
+                        <h3 class="card-title-italic">ПРЕДВКУШЕНИЕ РИТУАЛА</h3>
                     </div>
+                    <p class="card-description">Мы проектируем безупречный сценарий восстановления. Ваше погружение в VOLKI начинается с чистого предвкушения, свободного от любой суеты.</p>
+                    <div class="card-spacer"></div>
                     <div class="card-image">
                         <img src="assets/images/rest-1.png" alt="Предвкушение ритуала">
                     </div>
                 </div>
                 <div class="rest-card">
-                    <div class="card-text">
-                        <div class="card-header">
-                            <div class="card-number">2</div>
-                            <h3 class="card-title-italic">НАСТРОЙКА ЧУВСТВ</h3>
-                        </div>
-                        <p class="card-description">
-                            Знакомство с пар-мастером и тонкая калибровка среды. Температура, пар и ароматы целебных трав адаптируются под ваше состояние «здесь и сейчас».
-                        </p>
+                    <div class="card-header">
+                        <div class="card-number">2</div>
+                        <h3 class="card-title-italic">НАСТРОЙКА ЧУВСТВ</h3>
                     </div>
+                    <p class="card-description">Знакомство с пар-мастером и тонкая калибровка среды. Температура, пар и ароматы целебных трав адаптируются под ваше состояние «здесь и сейчас».</p>
+                    <div class="card-spacer"></div>
                     <div class="card-image">
                         <img src="assets/images/rest-2.png" alt="Настройка чувств">
                     </div>
                 </div>
                 <div class="rest-card">
-                    <div class="card-text">
-                        <div class="card-header">
-                            <div class="card-number">3</div>
-                            <h3 class="card-title-italic">ТРАНСФОРМАЦИЯ</h3>
-                        </div>
-                        <p class="card-description">
-                            Глубокое парение с использованием авторских техник. Каждое движение веника — это искусство, направленное на ваше обновление и восстановление энергии.
-                        </p>
+                    <div class="card-header">
+                        <div class="card-number">3</div>
+                        <h3 class="card-title-italic">ГЛУБОКОЕ ПОГРУЖЕНИЕ</h3>
                     </div>
+                    <p class="card-description">Момент полного физического и ментального расслабления. Мягкий пар и профессиональное мастерство возвращают вам внутренний баланс и абсолютную ясность мысли.</p>
+                    <div class="card-spacer"></div>
                     <div class="card-image">
-                        <img src="assets/images/rest-3.png" alt="Трансформация">
+                        <img src="assets/images/rest-3.png" alt="Глубокое погружение">
+                    </div>
+                </div>
+                <div class="rest-card">
+                    <div class="card-header">
+                        <div class="card-number">4</div>
+                        <h3 class="card-title-italic">СОХРАНЕНИЕ БАЛАНСА</h3>
+                    </div>
+                    <p class="card-description">Финальный аккорд в абсолютной тишине. Авторский чай и фермерские угощения мягко завершают ритуал, делая ваше возвращение в привычный ритм плавным и осознанным.</p>
+                    <div class="card-spacer"></div>
+                    <div class="card-image">
+                        <img src="assets/images/rest-4.png" alt="Сохранение баланса">
                     </div>
                 </div>
             </div>
@@ -616,57 +636,391 @@
                     </div>
                 </div>
             </div>
+            <p class="banya-cards-note">*Подробные описания, этапы и бронь — на странице бани</p>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates-section">
+        <!-- Верхний горный разделитель -->
+        <svg class="certificates-divider certificates-divider-top" viewBox="0 0 1920 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 60 L0 35 L120 28 L240 42 L360 18 L480 38 L600 22 L720 45 L840 15 L960 40 L1080 25 L1200 48 L1320 20 L1440 35 L1560 28 L1680 42 L1800 30 L1920 38 L1920 60 Z" fill="#fffffb"/>
+        </svg>
+
         <div class="container">
-            <h2 class="section-title-center">Мы собрали самые частые вопросы о наших банях</h2>
+            <div class="certificates-content">
+                <!-- Левая колонка -->
+                <div class="certificates-left">
+                    <!-- Заголовок -->
+                    <h2 class="certificates-title">
+                        <span class="title-regular">Подарочные</span>
+                        <span class="title-italic">сертификаты</span>
+                    </h2>
+
+                    <!-- Кнопка -->
+                    <button class="certificates-button">КУПИТЬ СЕРТИФИКАТ</button>
+
+                    <!-- Список способов доставки -->
+                    <div class="delivery-list">
+                        <div class="delivery-item">
+                            <svg class="delivery-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="8" y1="1" x2="8" y2="15" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                                <line x1="1" y1="8" x2="15" y2="8" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                                <line x1="2.93" y1="2.93" x2="13.07" y2="13.07" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                                <line x1="13.07" y1="2.93" x2="2.93" y2="13.07" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                            </svg>
+                            <span class="delivery-text">Онлайн через сайт</span>
+                        </div>
+                        <div class="delivery-item">
+                            <svg class="delivery-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="8" y1="1" x2="8" y2="15" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                                <line x1="1" y1="8" x2="15" y2="8" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                                <line x1="2.93" y1="2.93" x2="13.07" y2="13.07" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                                <line x1="13.07" y1="2.93" x2="2.93" y2="13.07" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                            </svg>
+                            <span class="delivery-text">Лично в комплексах</span>
+                        </div>
+                        <div class="delivery-item">
+                            <svg class="delivery-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="8" y1="1" x2="8" y2="15" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                                <line x1="1" y1="8" x2="15" y2="8" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                                <line x1="2.93" y1="2.93" x2="13.07" y2="13.07" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                                <line x1="13.07" y1="2.93" x2="2.93" y2="13.07" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                            </svg>
+                            <span class="delivery-text">Курьером по минску</span>
+                        </div>
+                    </div>
+
+                    <!-- Инфо-блок -->
+                    <div class="certificates-info-box">
+                        <h3 class="info-box-subtitle">ПРИВИЛЕГИЯ ТИШИНЫ</h3>
+                        <p class="info-box-text">Подарок, который подчеркивает ваше исключительное отношение. Сертификат VOLKI — это возможность подарить партнерам и близким абсолютный покой, безупречный сервис и ту самую ясность мысли, которой так не хватает в суете.</p>
+                    </div>
+                </div>
+
+                <!-- Правая колонка (картинка) -->
+                <div class="certificates-right">
+                    <img src="assets/images/sertificat.png" alt="Подарочный сертификат VOLKI" class="certificates-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- Нижний горный разделитель -->
+        <svg class="certificates-divider certificates-divider-bottom" viewBox="0 0 1920 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 60 L0 35 L120 28 L240 42 L360 18 L480 38 L600 22 L720 45 L840 15 L960 40 L1080 25 L1200 48 L1320 20 L1440 35 L1560 28 L1680 42 L1800 30 L1920 38 L1920 60 Z" fill="#fbfaf1"/>
+        </svg>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <!-- Верхний горный разделитель -->
+        <svg class="faq-divider faq-divider-top" viewBox="0 0 1920 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 60 L0 35 L120 28 L240 42 L360 18 L480 38 L600 22 L720 45 L840 15 L960 40 L1080 25 L1200 48 L1320 20 L1440 35 L1560 28 L1680 42 L1800 30 L1920 38 L1920 60 Z" fill="#fbfaf1"/>
+        </svg>
+
+        <div class="container">
+            <h2 class="faq-title">
+                <span class="title-regular">Мы собрали самые </span><span class="title-italic">частые</span><br>
+                <span class="title-italic">вопросы</span><span class="title-regular"> о наших банях</span>
+            </h2>
+
             <div class="faq-list">
                 <div class="faq-item">
                     <button class="faq-question">
                         <span>Как забронировать отдых и какая нужна предоплата?</span>
-                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20">
-                            <path d="M5 7.5l5 5 5-5" stroke="#818f56" stroke-width="1.67" fill="none"/>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 7.5l5 5 5-5" stroke="#8a956a" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
                     <div class="faq-answer">
                         <p>Для бронирования свяжитесь с нами по телефону или через форму на сайте. Предоплата составляет 30% от стоимости.</p>
                     </div>
                 </div>
+
                 <div class="faq-item">
                     <button class="faq-question">
                         <span>Что входит в стоимость посещения?</span>
-                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20">
-                            <path d="M5 7.5l5 5 5-5" stroke="#818f56" stroke-width="1.67" fill="none"/>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 7.5l5 5 5-5" stroke="#8a956a" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
                     <div class="faq-answer">
                         <p>В стоимость входит аренда бани, услуги банщика, веники, чай и легкие закуски.</p>
                     </div>
                 </div>
+
                 <div class="faq-item">
                     <button class="faq-question">
                         <span>Можно ли приехать с детьми?</span>
-                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20">
-                            <path d="M5 7.5l5 5 5-5" stroke="#818f56" stroke-width="1.67" fill="none"/>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 7.5l5 5 5-5" stroke="#8a956a" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
                     <div class="faq-answer">
                         <p>Да, дети приветствуются. Рекомендуемый возраст от 7 лет.</p>
                     </div>
                 </div>
+
                 <div class="faq-item">
                     <button class="faq-question">
                         <span>Что необходимо взять с собой?</span>
-                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20">
-                            <path d="M5 7.5l5 5 5-5" stroke="#818f56" stroke-width="1.67" fill="none"/>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 7.5l5 5 5-5" stroke="#8a956a" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
                     <div class="faq-answer">
                         <p>Возьмите купальные принадлежности, сменную обувь и хорошее настроение. Остальное мы предоставим.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <!-- Шапка секции -->
+            <div class="reviews-header">
+                <!-- Заголовок -->
+                <h2 class="reviews-title">
+                    <span class="title-regular">Волки-место, куда</span>
+                    <span class="title-italic">хочется</span>
+                    <span class="title-regular">возвращаться снова и</span>
+                    <span class="title-italic">снова</span>
+                </h2>
+
+                <!-- Рейтинг и бейджи -->
+                <div class="reviews-rating">
+                    <p class="reviews-rating-text">
+                        Оценка клиентов по всем локациям от <strong>4,8</strong> до <strong>5</strong> на основании отзывов
+                    </p>
+                    <div class="reviews-badges">
+                        <!-- Google Badge -->
+                        <div class="reviews-badge">
+                            <div class="badge-icon">
+                                <span class="badge-icon-text badge-icon-google">G</span>
+                            </div>
+                            <div class="badge-text">Хорошее<br>место</div>
+                        </div>
+                        <!-- Yandex Badge -->
+                        <div class="reviews-badge">
+                            <div class="badge-icon">
+                                <span class="badge-icon-text badge-icon-yandex">Я</span>
+                            </div>
+                            <div class="badge-text">Хорошее<br>место</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сетка карточек отзывов -->
+            <div class="reviews-grid">
+                <!-- Карточка 1 -->
+                <div class="review-card">
+                    <div class="review-card-header">
+                        <span class="review-card-name">АННА</span>
+                        <span class="review-card-date">25.11.2024</span>
+                    </div>
+                    <h3 class="review-card-title">Самые яркие эмоции за последнее время!</h3>
+                    <p class="review-card-text">Были с мужем в CHALET, всё продумано до мелочей: от температуры в парной до чая после. Вернулись через месяц ещё раз.</p>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="review-card">
+                    <div class="review-card-header">
+                        <span class="review-card-name">ДМИТРИЙ</span>
+                        <span class="review-card-date">18.10.2024</span>
+                    </div>
+                    <h3 class="review-card-title">Идеальное место для отдыха с друзьями</h3>
+                    <p class="review-card-text">Отмечали день рождения в Юхновке. Профессиональный банщик, отличная кухня, абсолютная приватность. Рекомендую всем!</p>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="review-card">
+                    <div class="review-card-header">
+                        <span class="review-card-name">ЕЛЕНА</span>
+                        <span class="review-card-date">02.09.2024</span>
+                    </div>
+                    <h3 class="review-card-title">Настоящая перезагрузка</h3>
+                    <p class="review-card-text">После напряженной рабочей недели это именно то, что нужно. Тишина, природа, забота о каждой детали. Уезжать не хотелось.</p>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="review-card">
+                    <div class="review-card-header">
+                        <span class="review-card-name">СЕРГЕЙ</span>
+                        <span class="review-card-date">14.08.2024</span>
+                    </div>
+                    <h3 class="review-card-title">Премиальный сервис на высшем уровне</h3>
+                    <p class="review-card-text">Привозил сюда партнеров из-за рубежа. Все были в восторге от уровня сервиса и атмосферы. VOLKI — это эталон.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Нижний горный разделитель -->
+        <svg class="reviews-divider reviews-divider-bottom" viewBox="0 0 1920 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 60 L0 35 L120 28 L240 42 L360 18 L480 38 L600 22 L720 45 L840 15 L960 40 L1080 25 L1200 48 L1320 20 L1440 35 L1560 28 L1680 42 L1800 30 L1920 38 L1920 60 Z" fill="#fbfaf1"/>
+        </svg>
+    </section>
+
+    <!-- Farm Food Section -->
+    <section id="farm-food" class="farm-food-section">
+        <div class="container">
+            <!-- Заголовок -->
+            <h2 class="farm-food-title">
+                <span class="title-italic">Фермерская еда</span>
+                <span class="title-regular">продолжает ваш отдых</span>
+            </h2>
+
+            <!-- Фотографии -->
+            <div class="farm-food-images">
+                <img src="assets/images/foog.png" alt="Фермерская еда" class="farm-food-image">
+                <img src="assets/images/foog.png" alt="Фермерская еда" class="farm-food-image">
+            </div>
+
+            <!-- Подвал секции -->
+            <div class="farm-food-footer">
+                <!-- Левая колонка (Цена) -->
+                <div class="farm-food-price">
+                    <span class="farm-food-price-label">СРЕДНИЙ ЧЕК</span>
+                    <span class="farm-food-price-dots"></span>
+                    <span class="farm-food-price-value">70-90р/ чел</span>
+                </div>
+
+                <!-- Правая колонка (Описание) -->
+                <p class="farm-food-description">
+                    Приготовим блюда из фермерских продуктов с учётом ваших вкусов. Свежие овощи, мясо и молочные продукты от проверенных поставщиков. Каждое блюдо — часть вашего отдыха.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section -->
+    <section id="media" class="media-section">
+        <!-- Верхний горный разделитель -->
+        <svg class="media-divider media-divider-top" viewBox="0 0 1920 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 60 L0 35 L120 28 L240 42 L360 18 L480 38 L600 22 L720 45 L840 15 L960 40 L1080 25 L1200 48 L1320 20 L1440 35 L1560 28 L1680 42 L1800 30 L1920 38 L1920 60 Z" fill="#f4f3eb"/>
+        </svg>
+
+        <div class="container">
+            <!-- Заголовок -->
+            <h2 class="media-title">
+                <span class="title-regular">СМИ </span><span class="title-italic">о нас</span>
+            </h2>
+
+            <!-- Подзаголовок -->
+            <p class="media-subtitle">Что пишут о VOLKI в белорусских изданиях</p>
+
+            <!-- Сетка карточек -->
+            <div class="media-grid">
+                <!-- Карточка 1 -->
+                <article class="media-card">
+                    <div class="media-card-header">
+                        <span class="media-card-source">Онлайнер</span>
+                        <span class="media-card-date">27.11.2023</span>
+                    </div>
+                    <h3 class="media-card-title">Премиальный банный комплекс, где отдыхают топ-менеджеры</h3>
+                    <p class="media-card-text">
+                        VOLKI — это не просто баня. Это пространство, где каждая деталь продумана для абсолютного комфорта. Репортаж о том, как устроен бизнес премиального отдыха в Беларуси.
+                    </p>
+                    <a href="#" class="media-card-link">ЧИТАТЬ СТАТЬЮ</a>
+                </article>
+
+                <!-- Карточка 2 -->
+                <article class="media-card">
+                    <div class="media-card-header">
+                        <span class="media-card-source">TUT.BY</span>
+                        <span class="media-card-date">15.09.2023</span>
+                    </div>
+                    <h3 class="media-card-title">Как белорусы создали банный комплекс европейского уровня</h3>
+                    <p class="media-card-text">
+                        История создания VOLKI: от идеи до реализации. Основатели рассказывают, почему выбрали именно банную культуру и как удалось выйти на премиальный сегмент.
+                    </p>
+                    <a href="#" class="media-card-link">ЧИТАТЬ СТАТЬЮ</a>
+                </article>
+            </div>
+        </div>
+
+        <!-- Нижний горный разделитель -->
+        <svg class="media-divider media-divider-bottom" viewBox="0 0 1920 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 60 L0 35 L120 28 L240 42 L360 18 L480 38 L600 22 L720 45 L840 15 L960 40 L1080 25 L1200 48 L1320 20 L1440 35 L1560 28 L1680 42 L1800 30 L1920 38 L1920 60 Z" fill="#f4f3eb"/>
+        </svg>
+    </section>
+
+    <!-- Masterclass Section -->
+    <section id="masterclass" class="masterclass-section">
+        <!-- Верхний горный разделитель -->
+        <svg class="masterclass-divider masterclass-divider-top" viewBox="0 0 1920 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 60 L0 35 L120 28 L240 42 L360 18 L480 38 L600 22 L720 45 L840 15 L960 40 L1080 25 L1200 48 L1320 20 L1440 35 L1560 28 L1680 42 L1800 30 L1920 38 L1920 60 Z" fill="#f4f3eb"/>
+        </svg>
+
+        <div class="container">
+            <div class="masterclass-content">
+                <!-- Левая колонка -->
+                <div class="masterclass-left">
+                    <!-- Заголовок -->
+                    <h2 class="masterclass-title">
+                        <span class="title-regular">Мастер-классы</span>
+                        <span class="title-italic">по парению</span>
+                    </h2>
+
+                    <!-- Кнопка -->
+                    <button class="masterclass-button">ПОДРОБНЕЕ</button>
+
+                    <!-- Элемент списка -->
+                    <div class="masterclass-feature">
+                        <svg class="masterclass-feature-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="8" y1="1" x2="8" y2="15" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                            <line x1="1" y1="8" x2="15" y2="8" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                            <line x1="2.93" y1="2.93" x2="13.07" y2="13.07" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                            <line x1="13.07" y1="2.93" x2="2.93" y2="13.07" stroke="#2d4939" stroke-width="1.4" stroke-linecap="round"/>
+                        </svg>
+                        <span class="masterclass-feature-text">Для любителей и профессионалов</span>
+                    </div>
+
+                    <!-- Инфо-блок -->
+                    <div class="masterclass-info-box">
+                        <p class="masterclass-info-text">Мастер-классы VOLKI — это обучение парению через практику, традиции и философию бани.</p>
+                    </div>
+                </div>
+
+                <!-- Правая колонка (картинка) -->
+                <div class="masterclass-right">
+                    <img src="assets/images/команда.png" alt="Мастер-классы по парению" class="masterclass-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- Нижний горный разделитель -->
+        <svg class="masterclass-divider masterclass-divider-bottom" viewBox="0 0 1920 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 60 L0 35 L120 28 L240 42 L360 18 L480 38 L600 22 L720 45 L840 15 L960 40 L1080 25 L1200 48 L1320 20 L1440 35 L1560 28 L1680 42 L1800 30 L1920 38 L1920 60 Z" fill="#fbfaf1"/>
+        </svg>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <!-- Заголовок -->
+            <h2 class="features-title">
+                <span class="title-regular">Не только </span><span class="title-italic">парная</span>
+            </h2>
+
+            <!-- Сетка карточек -->
+            <div class="features-grid">
+                <!-- Левая карточка -->
+                <div class="features-card">
+                    <img src="assets/images/туман.png" alt="Юхновский лесной заповедник" class="features-card-image">
+                    <p class="features-card-text">
+                        На территории агроусадьбы есть выход в <strong>Юхновский лесной заповедник</strong>, по которому мы организовываем прогулки. Лучший способ почувствовать природу у самых её истоков.
+                    </p>
+                </div>
+
+                <!-- Правая карточка -->
+                <div class="features-card">
+                    <img src="assets/images/волкпоследний.png" alt="Комфортабельные спальные места" class="features-card-image">
+                    <p class="features-card-text">
+                        Для наших туристов мы предоставляем ночлег и комфортабельные спальные места, чтобы можно было неспешно насладиться отдыхом вдали от города.
+                    </p>
                 </div>
             </div>
         </div>

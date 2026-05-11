@@ -1,0 +1,106 @@
+/* ============================================
+   Features Section (Не только парная)
+   ============================================ */
+
+.features-section {
+    position: relative;
+    width: 100%;
+    background-color: #fbfaf1;
+    padding: 100px 0;
+}
+
+/* Заголовок */
+.features-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 54px;
+    line-height: 1.1;
+    margin: 0 0 40px 0;
+    color: #353535;
+    text-align: left;
+}
+
+.features-title .title-regular {
+    font-weight: 500;
+    font-style: normal;
+}
+
+.features-title .title-italic {
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Сетка карточек */
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* Карточка */
+.features-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Изображение */
+.features-card-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+/* Текст под фото */
+.features-card-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #8c928b;
+    margin: 0;
+}
+
+.features-card-text strong {
+    font-weight: 700;
+    color: #353535;
+}
+
+/* ============================================
+   Responsive (Mobile)
+   ============================================ */
+
+@media (max-width: 768px) {
+    .features-section {
+        padding: 80px 0;
+    }
+
+    .features-title {
+        font-size: 42px;
+        margin-bottom: 32px;
+    }
+
+    /* Карточки в одну колонку */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .features-card-text {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-section {
+        padding: 60px 0;
+    }
+
+    .features-title {
+        font-size: 36px;
+    }
+
+    .features-card-image {
+        margin-bottom: 12px;
+    }
+}
