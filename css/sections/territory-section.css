@@ -14,11 +14,10 @@
 /* ─── MAP: absolute, covers right ~65% of section ─── */
 .territory-map-bg {
     position: absolute;
-    /* Fixed positioning - won't shift when cards change */
-    left: 5%;
-    top: 30%;
+    left: 35%;       /* начинается после колонки карточек */
+    top: 0;
     right: -40px;
-    bottom: 1%;
+    bottom: 0;
     z-index: 0;
     pointer-events: none;
 }
@@ -28,8 +27,6 @@
     position: relative;
     width: 100%;
     height: 100%;
-    transform: scale(0.8);
-    transform-origin: center center;
     pointer-events: none;
 }
 
@@ -37,11 +34,14 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: left center;
+    /* Измените left на right или center, чтобы сдвинуть карту влево/вправо */
+    /* Примеры: "left center" (левее), "center center" (по центру), "right center" (правее) */
+    /* Или используйте проценты: "30% center" (30% от левого края) */
+    object-position: 50% center;
     display: block;
 }
 
-/* LEFT + RIGHT fade — dissolves map edges into bg color */
+/* LEFT + RIGHT fade — dissolves map edges into bg color with Gaussian blur */
 .territory-map-bg::before {
     content: '';
     position: absolute;
@@ -51,19 +51,18 @@
     background: linear-gradient(
         to right,
         #f7f5ec 0%,
-        rgba(247,245,236,0.92) 8%,
-        rgba(247,245,236,0.55) 22%,
-        rgba(247,245,236,0.15) 40%,
-        transparent 55%,
+        rgba(247,245,236,0.85) 12%,
+        rgba(247,245,236,0.3) 28%,
+        transparent 45%,
         transparent 72%,
-        rgba(247,245,236,0.4) 80%,
-        rgba(247,245,236,0.75) 88%,
-        rgba(247,245,236,0.93) 94%,
+        rgba(247,245,236,0.4) 82%,
+        rgba(247,245,236,0.78) 91%,
         #f7f5ec 100%
     );
+    backdrop-filter: blur(0px);
 }
 
-/* TOP + BOTTOM fade */
+/* TOP + BOTTOM fade with Gaussian blur */
 .territory-map-bg::after {
     content: '';
     position: absolute;
@@ -79,6 +78,44 @@
         rgba(247,245,236,0.5) 80%,
         rgba(247,245,236,0.8) 92%,
         #f7f5ec 100%
+    );
+    backdrop-filter: blur(0px);
+}
+
+/* Gaussian blur mask for edges */
+.map-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    mask-image: radial-gradient(
+        ellipse 85% 75% at 50% 50%,
+        black 40%,
+        transparent 75%
+    );
+    -webkit-mask-image: radial-gradient(
+        ellipse 85% 75% at 50% 50%,
+        black 40%,
+        transparent 75%
+    );
+}
+
+.map-container img {
+    filter: blur(0px);
+    mask-image: radial-gradient(
+        ellipse 90% 80% at 50% 50%,
+        black 50%,
+        rgba(0,0,0,0.7) 65%,
+        rgba(0,0,0,0.3) 80%,
+        transparent 95%
+    );
+    -webkit-mask-image: radial-gradient(
+        ellipse 90% 80% at 50% 50%,
+        black 50%,
+        rgba(0,0,0,0.7) 65%,
+        rgba(0,0,0,0.3) 80%,
+        transparent 95%
     );
 }
 
@@ -132,10 +169,10 @@
 /* ─── MAP MARKERS LAYER — отдельный слой поверх карты ─── */
 .map-markers-layer {
     position: absolute;
-    left: 5%;
-    top: 30%;
+    left: 35%;
+    top: 0;
     right: -40px;
-    bottom: 1%;
+    bottom: 0;
     z-index: 5;
     pointer-events: none;
 }
@@ -404,7 +441,7 @@
     .territory-description { grid-row: 2; padding-left: 0; }
     .territory-cards       { grid-row: 3; }
     .territory-map-cell    { display: none; }
-    .territory-map-bg      { left: 20%; right: -40px; }
+    .territory-map-bg      { left: 20%; right: -40px; top: 0; bottom: 0; }
 }
 
 @media (max-width: 640px) {
