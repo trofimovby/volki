@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Deploy via FTP
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
@@ -19,7 +19,7 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /public_html/${{ secrets.DOMAIN_NAME }}/
+        server-dir: /web/newsite.volki.by/public_html/
         exclude: |
           **/.git*
           **/.git*/**
