@@ -21,6 +21,6 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         port: 22
         local_path: ./*
-        remote_path: /home/${{ secrets.FTP_USERNAME }}/web/newsite.volki.by/public_html/
+        remote_path: ./web/newsite.volki.by/public_html/
         sftp_only: true
         args: '-o ConnectTimeout=5'
