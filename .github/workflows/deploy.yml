@@ -13,17 +13,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Deploy via FTP
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+    - name: Deploy via SFTP
+      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /
-        log-level: verbose
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          **/.github/**
-          **/archive/**
+        port: 22
+        local_path: ./*
+        remote_path: /home/${{ secrets.FTP_USERNAME }}/web/newsite.volki.by/public_html/
+        sftp_only: true
+        args: '-o ConnectTimeout=5'
