@@ -23,6 +23,6 @@ jobs:
         onlyNewer: false
         settings: 'sftp:auto-confirm yes'
         localDir: './'
-        remoteDir: '/home/volkiby/web/newsite.volki.by/public_html/'
+        remoteDir: '/home/volkiby/web/newsite.volki.by/'
         reverse: true
         ignoreFile: '.gitignore'
