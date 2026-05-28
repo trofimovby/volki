@@ -14,13 +14,15 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Deploy via SFTP
-      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      uses: pressidium/lftp-mirror-action@v1
       with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
+        host: ${{ secrets.FTP_SERVER }}
         port: 22
-        local_path: ./*
-        remote_path: ./web/newsite.volki.by/public_html/
-        sftp_only: true
-        args: '-o ConnectTimeout=5'
+        user: ${{ secrets.FTP_USERNAME }}
+        pass: ${{ secrets.FTP_PASSWORD }}
+        onlyNewer: false
+        settings: 'sftp:auto-confirm yes'
+        localDir: './'
+        remoteDir: '/home/volkiby/web/newsite.volki.by/public_html/'
+        reverse: true
+        ignoreFile: '.gitignore'
