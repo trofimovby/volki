@@ -13,6 +13,21 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Debug FTP structure
+      uses: appleboy/ssh-action@v1.0.3
+      continue-on-error: true
+      with:
+        host: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        port: 21
+        protocol: ftp
+        script: |
+          pwd
+          ls -la
+          ls -la web/ || echo "No web directory"
+          ls -la public_html/ || echo "No public_html directory"
+
     - name: Deploy via FTP
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
