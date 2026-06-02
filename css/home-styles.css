@@ -17,49 +17,21 @@ body {
     padding: 0;
 }
 
-/* Sidebar Menu */
+/* Sidebar Menu - Плавающая карточка */
 .sidebar-menu {
     position: fixed;
-    left: 0;
-    top: 0;
+    left: 2vh;
+    top: 2vh;
+    bottom: 2vh;
     width: 302px;
-    height: 100vh;
+    height: calc(100vh - 4vh);
     background: #1f2626;
-    border-radius: 0;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     z-index: 1000;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-}
-
-/* Вогнутое скругление верхнего правого угла */
-.sidebar-menu::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -32px;
-    width: 32px;
-    height: 32px;
-    background: transparent;
-    border-radius: 0 0 0 32px;
-    box-shadow: -16px -16px 0 16px #1f2626;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Вогнутое скругление нижнего правого угла */
-.sidebar-menu::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: -32px;
-    width: 32px;
-    height: 32px;
-    background: transparent;
-    border-radius: 32px 0 0 0;
-    box-shadow: -16px 16px 0 16px #1f2626;
-    pointer-events: none;
-    z-index: 1;
+    overflow: hidden;
 }
 
 .sidebar-menu::-webkit-scrollbar {
@@ -67,12 +39,10 @@ body {
 }
 
 .sidebar-content {
-    padding: 16px 20px 16px 20px;
+    padding: clamp(12px, 2vh, 24px) 20px;
     display: flex;
     flex-direction: column;
-    flex: 1;
     justify-content: space-between;
-    min-height: 0;
     height: 100%;
     overflow: hidden;
 }
@@ -80,39 +50,35 @@ body {
 .sidebar-top {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding-right: 4px;
-    flex-shrink: 1;
-    min-height: 0;
-    overflow: hidden;
+    gap: clamp(8px, 1.2vh, 16px);
 }
 
 .sidebar-bottom {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: clamp(8px, 1vh, 12px);
     flex-shrink: 0;
 }
 
 .sidebar-logo img {
-    height: 18px;
+    height: clamp(16px, 2.2vh, 22px);
     width: auto;
 }
 
 .sidebar-nav {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: clamp(3px, 0.4vh, 6px);
     margin-top: 0;
 }
 
 .nav-link {
-    font-size: 11px;
-    line-height: 1;
+    font-size: clamp(12px, 1.5vh, 15px);
+    line-height: 1.2;
+    padding: clamp(2px, 0.4vh, 5px) 0;
     color: #8c928b;
     text-decoration: none;
     transition: color 0.3s ease, padding-left 0.3s ease;
-    padding: 1px 0;
 }
 
 .nav-link:hover,
@@ -130,26 +96,27 @@ body {
 }
 
 .sidebar-nav-header {
-    font-size: 12px;
+    font-size: clamp(12px, 1.6vh, 15px);
     font-weight: 700;
     color: #9d8f7b;
     letter-spacing: 0;
-    margin-bottom: 4px;
+    margin-bottom: clamp(3px, 0.6vh, 8px);
 }
 
 .sidebar-nav-header svg {
-    width: 14px;
-    height: 14px;
+    width: clamp(12px, 1.5vh, 16px);
+    height: clamp(12px, 1.5vh, 16px);
 }
 
 .sidebar-section-header {
     display: flex;
     align-items: center;
     gap: 4px;
-    font-size: 12px;
+    font-size: clamp(11px, 1.4vh, 14px);
     font-weight: 700;
     color: #9d8f7b;
     letter-spacing: 0;
+    padding: clamp(2px, 0.3vh, 4px) 0;
     cursor: pointer;
     transition: color 0.3s ease;
 }
@@ -176,11 +143,11 @@ body {
 .sidebar-contacts {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: clamp(4px, 0.6vh, 8px);
 }
 
 .contacts-title {
-    font-size: 11px;
+    font-size: clamp(9px, 1.1vh, 11px);
     font-weight: 700;
     color: #57534e;
     letter-spacing: 1px;
@@ -192,7 +159,7 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 6px;
-    font-size: 11px;
+    font-size: clamp(10px, 1.3vh, 13px);
     line-height: 1.3;
     color: #9d8f7b;
     text-decoration: none;
@@ -210,14 +177,14 @@ body {
 
 .sidebar-social {
     display: flex;
-    gap: 8px;
+    gap: clamp(6px, 0.8vh, 10px);
     flex-wrap: wrap;
     max-width: 100%;
 }
 
 .social-link {
-    width: 32px;
-    height: 32px;
+    width: clamp(26px, 3.2vh, 34px);
+    height: clamp(26px, 3.2vh, 34px);
     background: #2d2925;
     border-radius: 50%;
     display: flex;
@@ -233,20 +200,20 @@ body {
 }
 
 .social-link svg {
-    width: 16px;
-    height: 16px;
+    width: clamp(13px, 1.6vh, 17px);
+    height: clamp(13px, 1.6vh, 17px);
 }
 
 .sidebar-cta {
     width: 100%;
     max-width: 100%;
-    padding: 8px 12px;
+    padding: clamp(8px, 1.2vh, 12px) clamp(12px, 1.5vh, 18px);
     background: transparent;
     border: 1px solid #9d8f7b;
     border-radius: 4px;
     color: #ffffff;
     font-family: 'Manrope', sans-serif;
-    font-size: 9px;
+    font-size: clamp(9px, 1.1vh, 11px);
     font-weight: 700;
     letter-spacing: 1.2px;
     text-transform: uppercase;
@@ -263,7 +230,7 @@ body {
 
 /* Main Content */
 .main-content {
-    margin-left: 302px;
+    margin-left: 334px;
     min-height: 100vh;
 }
 
@@ -314,20 +281,45 @@ h1, h2, h3 {
     transition: opacity 0.3s ease-in-out;
 }
 
+/* Soft green glowing light effect at the top */
 .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20vh;
+    background: linear-gradient(180deg, rgba(159, 168, 116, 0.35) 0%, rgba(159, 168, 116, 0) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Эффект виньетки с размытием */
+.hero::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(7, 18, 17, 0.95) 0%, rgba(23, 20, 17, 0.4) 100%);
+
+    /* Настоящее гауссово размытие */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* Маска: центр прозрачный (в фокусе), края залиты (размыты) */
+    mask-image: radial-gradient(circle at center, transparent 40%, black 100%);
+    -webkit-mask-image: radial-gradient(circle at center, transparent 40%, black 100%);
+
+    /* Легкое затемнение краев для премиальности */
+    box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
     z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     text-align: center;
     max-width: 800px;
     padding: 40px;
@@ -850,13 +842,33 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 60px;
     margin-bottom: 40px;
 }
 
+.programs-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
 .section-title-left {
+    font-family: 'Cormorant Garamond', serif;
     font-size: 50px;
-    line-height: 0.73;
+    line-height: 1.1;
     color: #353535;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-title-left .title-regular {
+    font-weight: 400;
+    font-style: normal;
+}
+
+.section-title-left .title-italic {
+    font-weight: 400;
+    font-style: italic;
 }
 
 .section-description-right {
@@ -870,7 +882,6 @@ h1, h2, h3 {
 .location-tabs {
     display: flex;
     gap: 0;
-    margin-bottom: 48px;
 }
 
 .tab-button {
@@ -900,23 +911,31 @@ h1, h2, h3 {
     background: #d5d5cb;
 }
 
-/* Контейнер карточек */
+/* Контейнер карточек - горизонтальный скролл */
 .banya-cards {
     display: flex;
-    gap: 20px;
+    gap: 24px;
+    overflow-x: auto;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin-bottom: 24px;
 }
 
-/* Сама карточка */
+.banya-cards::-webkit-scrollbar {
+    display: none;
+}
+
+/* Сама карточка - жесткая ширина */
 .banya-card {
-    width: calc(33.333% - 14px);
+    flex: 0 0 520px;
     background: #fffdf7;
     box-shadow: none;
     border: 1px solid #e8e5d0;
     display: flex;
     flex-direction: row;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 280px;
 }
 
 .banya-card:hover {
@@ -924,22 +943,28 @@ h1, h2, h3 {
     box-shadow: 0 10px 32px rgba(45, 73, 57, 0.08);
 }
 
-/* Изображение бани */
+/* Изображение бани - левая часть */
 .banya-image {
-    width: 150px;
-    height: auto;
-    min-height: 200px;
+    width: 45%;
+    height: 100%;
     object-fit: cover;
-    align-self: stretch;
+    flex-shrink: 0;
 }
 
-/* Блок с информацией (текст) */
+/* Блок с информацией - правая часть */
 .banya-info {
-    flex: 1;
-    padding: 24px 20px;
+    width: 55%;
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    position: relative;
+}
+
+/* Шапка карточки: заголовок и ценник в одну строку */
+.banya-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
 }
 
 /* Название */
@@ -950,15 +975,11 @@ h1, h2, h3 {
     letter-spacing: 1px;
     line-height: 1.2;
     color: #353535;
-    margin-bottom: 24px;
-    margin-top: 0;
+    margin: 0;
 }
 
-/* Ценник в правом верхнем углу */
+/* Ценник - без абсолютного позиционирования */
 .price-tag {
-    position: absolute;
-    top: 0;
-    right: 0;
     padding: 8px 12px;
     background: #9fa874;
     color: #ffffff;
@@ -967,16 +988,15 @@ h1, h2, h3 {
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
+    flex-shrink: 0;
 }
 
 /* Сетка характеристик */
 .banya-features {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 8px;
-    row-gap: 14px;
-    margin-bottom: 24px;
-    flex-grow: 1;
+    gap: 16px;
+    margin: 24px 0;
 }
 
 /* Отдельная характеристика */
@@ -999,7 +1019,7 @@ h1, h2, h3 {
     font-size: 14px;
 }
 
-/* Кнопка Подробнее */
+/* Кнопка Подробнее - прижата к низу */
 .details-button {
     width: 100%;
     padding: 12px 0;
@@ -1013,7 +1033,7 @@ h1, h2, h3 {
     text-transform: uppercase;
     color: #2d4939;
     cursor: pointer;
-    margin-bottom: 0;
+    margin-top: auto;
     transition: all 0.3s ease;
 }
 
