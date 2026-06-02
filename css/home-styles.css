@@ -15,19 +15,6 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    position: relative;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 302px;
-    height: 100vh;
-    background: #fbfaf1;
-    z-index: 999;
-    pointer-events: none;
 }
 
 /* Sidebar Menu */
@@ -38,7 +25,7 @@ body::before {
     width: 302px;
     height: 100vh;
     background: #1f2626;
-    border-radius: 0 32px 32px 0;
+    border-radius: 0;
     z-index: 1000;
     overflow-y: auto;
     overflow-x: hidden;
