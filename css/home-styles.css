@@ -27,8 +27,7 @@ body {
     background: #1f2626;
     border-radius: 0;
     z-index: 1000;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -64,92 +63,56 @@ body {
 }
 
 .sidebar-menu::-webkit-scrollbar {
-    width: 6px;
-}
-
-.sidebar-menu::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.sidebar-menu::-webkit-scrollbar-thumb {
-    background: rgba(157, 143, 123, 0.5);
-    border-radius: 3px;
-}
-
-.sidebar-menu::-webkit-scrollbar-thumb:hover {
-    background: rgba(157, 143, 123, 0.7);
+    display: none;
 }
 
 .sidebar-content {
-    padding: 24px 24px 24px 20px;
+    padding: 16px 20px 16px 20px;
     display: flex;
     flex-direction: column;
     flex: 1;
     justify-content: space-between;
     min-height: 0;
+    height: 100%;
+    overflow: hidden;
 }
 
 .sidebar-top {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 8px;
     padding-right: 4px;
+    flex-shrink: 1;
+    min-height: 0;
+    overflow: hidden;
 }
 
 .sidebar-bottom {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding-right: 4px;
-}
-
-.sidebar-logo {
-    margin-bottom: 0;
+    gap: 8px;
+    flex-shrink: 0;
 }
 
 .sidebar-logo img {
-    height: 22px;
+    height: 18px;
     width: auto;
-}
-
-.sidebar-nav-header {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 15px;
-    font-weight: 700;
-    color: #fbfaf1;
-    letter-spacing: 0;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.sidebar-nav-header:hover {
-    color: #9d8f7b;
-}
-
-.sidebar-nav-header svg {
-    transition: transform 0.3s ease;
-}
-
-.sidebar-nav-header:hover svg {
-    transform: translateY(2px);
 }
 
 .sidebar-nav {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
     margin-top: 0;
 }
 
 .nav-link {
-    font-size: 14px;
+    font-size: 11px;
     line-height: 1;
     color: #8c928b;
     text-decoration: none;
     transition: color 0.3s ease, padding-left 0.3s ease;
-    padding: 3px 0;
+    padding: 1px 0;
 }
 
 .nav-link:hover,
@@ -166,11 +129,24 @@ body {
     margin-top: 0;
 }
 
+.sidebar-nav-header {
+    font-size: 12px;
+    font-weight: 700;
+    color: #9d8f7b;
+    letter-spacing: 0;
+    margin-bottom: 4px;
+}
+
+.sidebar-nav-header svg {
+    width: 14px;
+    height: 14px;
+}
+
 .sidebar-section-header {
     display: flex;
     align-items: center;
     gap: 4px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
     color: #9d8f7b;
     letter-spacing: 0;
@@ -200,11 +176,11 @@ body {
 .sidebar-contacts {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .contacts-title {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     color: #57534e;
     letter-spacing: 1px;
@@ -215,9 +191,9 @@ body {
 .contact-item {
     display: flex;
     align-items: flex-start;
-    gap: 8px;
-    font-size: 12px;
-    line-height: 1.35;
+    gap: 6px;
+    font-size: 11px;
+    line-height: 1.3;
     color: #9d8f7b;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -229,19 +205,19 @@ body {
 
 .contact-item svg {
     flex-shrink: 0;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 .sidebar-social {
     display: flex;
-    gap: 12px;
+    gap: 8px;
     flex-wrap: wrap;
     max-width: 100%;
 }
 
 .social-link {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     background: #2d2925;
     border-radius: 50%;
     display: flex;
@@ -257,22 +233,22 @@ body {
 }
 
 .social-link svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
 }
 
 .sidebar-cta {
     width: 100%;
     max-width: 100%;
-    padding: 9px 16px;
+    padding: 8px 12px;
     background: transparent;
     border: 1px solid #9d8f7b;
     border-radius: 4px;
     color: #ffffff;
     font-family: 'Manrope', sans-serif;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 700;
-    letter-spacing: 1.3px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease;
