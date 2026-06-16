@@ -45,31 +45,43 @@
         /* ============ SIDEBAR ============ */
         .sidebar-menu {
             position: fixed;
-            left: 0; top: 0;
+            left: 2vh;
+            top: 2vh;
+            bottom: 2vh;
             width: var(--sidebar-w);
-            height: 100vh;
+            height: calc(100vh - 4vh);
             background: var(--dark);
-            border-radius: 0 32px 32px 0;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             z-index: 1000;
             overflow: hidden;
             display: flex;
             flex-direction: column;
         }
         .sidebar-content {
-            padding: 24px 20px 16px;
+            padding: clamp(12px, 2vh, 24px) 20px;
             display: flex;
             flex-direction: column;
-            flex: 1;
             justify-content: space-between;
-            min-height: 0;
-            overflow-y: auto;
+            height: 100%;
+            overflow: hidden;
         }
-        .sidebar-top { display: flex; flex-direction: column; gap: 14px; }
-        .sidebar-bottom { display: flex; flex-direction: column; gap: 12px; }
+        .sidebar-top {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(8px, 1.2vh, 16px);
+            flex: 1 0 auto;
+        }
+        .sidebar-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(8px, 1vh, 12px);
+            flex-shrink: 0;
+        }
 
         .back-link {
             display: flex; align-items: center; gap: 6px;
-            font-size: 12px; font-weight: 600; letter-spacing: 1px;
+            font-size: clamp(10px, 1.3vh, 12px); font-weight: 600; letter-spacing: 1px;
             color: var(--gold); text-decoration: none; text-transform: uppercase;
             transition: color 0.3s;
         }
@@ -79,21 +91,21 @@
         .sidebar-logo { margin-bottom: 0; }
         .sidebar-logo-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 22px; font-weight: 600; letter-spacing: 4px;
+            font-size: clamp(18px, 2.4vh, 22px); font-weight: 600; letter-spacing: 4px;
             color: #fbfaf1;
         }
 
         .sidebar-section-header {
             display: flex; align-items: center; gap: 4px;
-            font-size: 14px; font-weight: 700;
+            font-size: clamp(12px, 1.5vh, 14px); font-weight: 700;
             color: var(--gold); cursor: pointer; transition: color 0.3s;
         }
         .sidebar-section-header:hover { color: var(--gold-light); }
 
-        .sidebar-nav { display: flex; flex-direction: column; gap: 8px; }
+        .sidebar-nav { display: flex; flex-direction: column; gap: clamp(4px, 0.6vh, 8px); }
         .nav-link {
-            font-size: 14px; color: #8c928b; text-decoration: none;
-            transition: color 0.3s, padding-left 0.3s; padding: 3px 0;
+            font-size: clamp(12px, 1.5vh, 14px); color: #8c928b; text-decoration: none;
+            transition: color 0.3s, padding-left 0.3s; padding: clamp(2px, 0.3vh, 3px) 0;
         }
         .nav-link:hover, .nav-link.active { color: #fbfaf1; padding-left: 8px; }
         .nav-link.active { font-weight: 700; }
@@ -101,29 +113,33 @@
         .sidebar-divider { width: 100%; height: 1px; background: #353535; }
 
         .contacts-title {
-            font-size: 12px; font-weight: 700; color: #57534e;
+            font-size: clamp(10px, 1.3vh, 12px); font-weight: 700; color: #57534e;
             letter-spacing: 1px; text-transform: uppercase; margin: 0;
             font-family: 'Manrope', sans-serif;
         }
         .contact-item {
             display: flex; align-items: flex-start; gap: 8px;
-            font-size: 12px; color: var(--gold); text-decoration: none; transition: color 0.3s;
+            font-size: clamp(10px, 1.3vh, 12px); color: var(--gold); text-decoration: none; transition: color 0.3s;
+            line-height: 1.3;
         }
         .contact-item:hover { color: var(--gold-light); }
-        .contact-item svg { flex-shrink: 0; margin-top: 4px; }
+        .contact-item svg { flex-shrink: 0; margin-top: 2px; }
 
-        .sidebar-social { display: flex; gap: 12px; flex-wrap: wrap; }
+        .sidebar-social { display: flex; gap: clamp(6px, 0.8vh, 12px); flex-wrap: wrap; }
         .social-link {
-            width: 36px; height: 36px; background: #2d2925;
+            width: clamp(28px, 3.5vh, 36px); height: clamp(28px, 3.5vh, 36px); background: #2d2925;
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
             transition: all 0.3s;
         }
         .social-link:hover { background: #3d3935; transform: translateY(-2px); }
+        .social-link svg {
+            width: clamp(14px, 1.8vh, 18px); height: clamp(14px, 1.8vh, 18px);
+        }
 
         .sidebar-cta {
-            width: 100%; padding: 9px 16px; background: transparent;
+            width: 100%; padding: clamp(8px, 1.1vh, 9px) 16px; background: transparent;
             border: 1px solid var(--gold); border-radius: 4px; color: #fff;
-            font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700;
+            font-family: 'Manrope', sans-serif; font-size: clamp(9px, 1.1vh, 10px); font-weight: 700;
             letter-spacing: 1.3px; text-transform: uppercase; cursor: pointer; transition: all 0.3s;
         }
         .sidebar-cta:hover {
@@ -132,7 +148,7 @@
         }
 
         /* ============ MAIN ============ */
-        .main-content { margin-left: var(--sidebar-w); min-height: 100vh; }
+        .main-content { margin-left: 334px; min-height: 100vh; }
 
         /* ============ HERO ============ */
         .banya-hero {
@@ -273,6 +289,12 @@
             align-items: center; justify-content: center; transition: all .2s;
         }
         .counter-btn:hover { border-color: var(--dark-alt); }
+        .counter-btn.counter-more {
+            width: auto; padding: 0 12px; border-radius: 4px; font-size: 13px; font-weight: 600;
+        }
+        .counter-btn.counter-more.active {
+            background: var(--dark-alt); color: #fff; border-color: var(--dark-alt);
+        }
         .counter-val {
             width: 28px; height: 28px; border-radius: 50%; background: var(--dark-alt);
             color: #fff; font-size: 13px; font-weight: 700; display: flex;
@@ -284,7 +306,7 @@
 
         /* Program cards grid */
         .programs-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;
         }
         .program-card {
             background: #fff; border-radius: 6px; overflow: hidden;
@@ -352,6 +374,89 @@
             letter-spacing: 1.2px; text-transform: uppercase; cursor: pointer; transition: all .2s;
         }
         .btn-more:hover { border-color: var(--dark-alt); color: var(--dark-alt); }
+
+        /* ============ MODAL ============ */
+        .modal {
+            display: none; position: fixed; inset: 0; z-index: 2000;
+            background: rgba(0, 0, 0, 0.75); align-items: center; justify-content: center;
+            padding: 20px; overflow-y: auto;
+        }
+        .modal.active { display: flex; }
+        .modal__content {
+            background: var(--cream); border-radius: 12px; max-width: 800px; width: 100%;
+            max-height: 90vh; overflow-y: auto; position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        /* Custom scrollbar */
+        .modal__content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal__content::-webkit-scrollbar-track {
+            background: rgba(157,143,123,0.1);
+            border-radius: 0 12px 12px 0;
+        }
+        .modal__content::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .modal__content::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-light);
+        }
+        /* Firefox scrollbar */
+        .modal__content {
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) rgba(157,143,123,0.1);
+        }
+        .modal__header {
+            position: sticky; top: 0; background: var(--dark); color: #fff;
+            padding: 24px 60px 24px 32px; border-radius: 12px 12px 0 0; z-index: 10;
+        }
+        .modal__title {
+            font-family: 'Cormorant Garamond', serif; font-size: 32px; margin-bottom: 8px;
+        }
+        .modal__subtitle {
+            font-size: 12px; color: rgba(255,255,255,.7); display: flex; gap: 16px; flex-wrap: wrap;
+        }
+        .modal__close {
+            position: absolute; top: 20px; right: 20px; width: 36px; height: 36px;
+            background: rgba(255,255,255,.1); border: none; border-radius: 50%; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; transition: all .3s;
+        }
+        .modal__close:hover { background: rgba(255,255,255,.2); transform: rotate(90deg); }
+        .modal__body { padding: 32px; }
+
+        .program-info {
+            background: var(--green-deep); color: #fff; padding: 20px; border-radius: 8px;
+            margin-bottom: 32px;
+        }
+        .program-info__price {
+            font-size: 28px; font-weight: 700; color: #e8c97a; margin-bottom: 8px;
+        }
+        .program-info__meta {
+            font-size: 13px; color: rgba(255,255,255,.8); display: flex; gap: 16px; flex-wrap: wrap;
+        }
+
+        .program-stages {
+            display: flex; flex-direction: column; gap: 24px;
+        }
+        .stage-block__title {
+            font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--dark-alt);
+            margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--gold);
+        }
+        .stage-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+        .stage-item {
+            display: flex; align-items: flex-start; gap: 10px;
+            font-size: 14px; line-height: 1.6; color: #4a4a44;
+        }
+        .stage-item::before {
+            content: '•'; color: var(--gold); font-size: 18px; flex-shrink: 0;
+        }
+        .program-note {
+            font-size: 12px; color: var(--text-muted); font-style: italic;
+            margin-top: 24px; padding-top: 16px; border-top: 1px solid #e4e2d8;
+        }
+
 
         /* ============ CTA BAND ============ */
         .cta-band {
@@ -467,6 +572,14 @@
         .service-name { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px; font-family: 'Manrope', sans-serif; }
         .service-desc { font-size: 11px; color: rgba(255,255,255,.55); max-width: 480px; line-height: 1.5; }
         .service-price { font-size: 13px; font-weight: 700; color: #c8be9e; white-space: nowrap; padding-left: 20px; }
+
+        .service-category {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px; font-weight: 600; color: rgba(255,255,255,.9);
+            margin-top: 32px; margin-bottom: 16px; padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,.2);
+        }
+        .service-category:first-child { margin-top: 0; }
 
         /* ============ HOW TO FIND ============ */
         .how-to-find { padding: 72px 0; background: var(--cream); }
@@ -726,53 +839,44 @@
                         <button class="counter-btn">−</button>
                         <div class="counter-val">1</div>
                         <button class="counter-btn">+</button>
-                        <div class="counter-val" style="background: #2d4939;">2</div>
+                        <div class="counter-val">2</div>
                         <button class="counter-btn">+</button>
-                        <span class="counter-more">4 и более</span>
+                        <button class="counter-btn counter-more">3+</button>
                     </div>
                 </div>
             </div>
 
-            <p class="results-count">Найдено: 10 программ</p>
+            <p class="results-count">Найдено: 5 программ</p>
 
             <!-- Cards -->
             <div class="programs-grid">
 
-                <!-- Card 1 -->
+                <!-- Card 1: Царская -->
                 <div class="program-card">
                     <div class="program-card__img">
                         <div class="program-card__img-bg"></div>
-                        <!-- ЗАГЛУШКА: program-tsarskaya-1.jpg — двое в бане, веники -->
                         <div class="program-card__badge">Популярное</div>
-                        <div class="program-card__nav">
-                            <button class="card-nav-btn">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M8 2L4 6l4 4" stroke="#fff" stroke-width="1.5"/></svg>
-                            </button>
-                            <button class="card-nav-btn">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4 2l4 4-4 4" stroke="#fff" stroke-width="1.5"/></svg>
-                            </button>
-                        </div>
                     </div>
                     <div class="program-card__body">
                         <div class="program-card__title">Царская</div>
-                        <div class="program-card__desc">Отличие: большое этапное и более насыщенная программа наполнения программ</div>
+                        <div class="program-card__desc">Погружение в атмосферу древнего Алтая с классическим парением</div>
                         <div class="program-card__meta">
                             <div class="meta-item">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#9d8f7b" stroke-width="1.2"/><path d="M6 3v3l2.5 1.5" stroke="#9d8f7b" stroke-width="1.2" stroke-linecap="round"/></svg>
-                                <span>2,5 часа</span>
+                                <span>3,5 часа</span>
                             </div>
                             <div class="meta-item">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2" stroke="#9d8f7b" stroke-width="1.2"/><path d="M1 11c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#9d8f7b" stroke-width="1.2"/></svg>
-                                <span>11 этапов</span>
+                                <span>10 этапов</span>
                             </div>
                             <div class="meta-item">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2" stroke="#9d8f7b" stroke-width="1.2"/><path d="M1 11c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#9d8f7b" stroke-width="1.2"/></svg>
-                                <span>до 3–10 чел.</span>
+                                <span>для 3 гостей</span>
                             </div>
                         </div>
                         <div class="program-card__price-row">
-                            <span class="price-main">1005 BYN</span>
-                            <span class="price-per">/ 395 BYN на гостя</span>
+                            <span class="price-main">1065 BYN</span>
+                            <span class="price-per">/ 355 BYN за гостя</span>
                         </div>
                         <div class="program-card__actions">
                             <button class="btn-book">Забронировать</button>
@@ -781,27 +885,18 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Card 2: Сибирский Эдем -->
                 <div class="program-card">
                     <div class="program-card__img">
                         <div class="program-card__img-bg"></div>
-                        <!-- ЗАГЛУШКА: program-tsarskaya-2.jpg — веник в пару -->
-                        <div class="program-card__nav">
-                            <button class="card-nav-btn">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M8 2L4 6l4 4" stroke="#fff" stroke-width="1.5"/></svg>
-                            </button>
-                            <button class="card-nav-btn">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4 2l4 4-4 4" stroke="#fff" stroke-width="1.5"/></svg>
-                            </button>
-                        </div>
                     </div>
                     <div class="program-card__body">
-                        <div class="program-card__title">Царская</div>
-                        <div class="program-card__desc">Отличие: большое этапное и более насыщенная программа наполнения программ</div>
+                        <div class="program-card__title">Сибирский Эдем</div>
+                        <div class="program-card__desc">Премиальное парение с релакс-массажем даосскими вениками</div>
                         <div class="program-card__meta">
                             <div class="meta-item">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#9d8f7b" stroke-width="1.2"/><path d="M6 3v3l2.5 1.5" stroke="#9d8f7b" stroke-width="1.2" stroke-linecap="round"/></svg>
-                                <span>2,5 часа</span>
+                                <span>3,5 часа</span>
                             </div>
                             <div class="meta-item">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2" stroke="#9d8f7b" stroke-width="1.2"/><path d="M1 11c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#9d8f7b" stroke-width="1.2"/></svg>
@@ -809,12 +904,12 @@
                             </div>
                             <div class="meta-item">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2" stroke="#9d8f7b" stroke-width="1.2"/><path d="M1 11c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#9d8f7b" stroke-width="1.2"/></svg>
-                                <span>до 3–10 чел.</span>
+                                <span>для 2 гостей</span>
                             </div>
                         </div>
                         <div class="program-card__price-row">
-                            <span class="price-main">1005 BYN</span>
-                            <span class="price-per">/ 395 BYN на гостя</span>
+                            <span class="price-main">1060 BYN</span>
+                            <span class="price-per">/ 530 BYN за гостя</span>
                         </div>
                         <div class="program-card__actions">
                             <button class="btn-book">Забронировать</button>
@@ -823,40 +918,31 @@
                     </div>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- Card 3: Премиум -->
                 <div class="program-card">
                     <div class="program-card__img">
                         <div class="program-card__img-bg"></div>
-                        <!-- ЗАГЛУШКА: program-tsarskaya-3.jpg — массаж с вениками -->
-                        <div class="program-card__nav">
-                            <button class="card-nav-btn">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M8 2L4 6l4 4" stroke="#fff" stroke-width="1.5"/></svg>
-                            </button>
-                            <button class="card-nav-btn">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4 2l4 4-4 4" stroke="#fff" stroke-width="1.5"/></svg>
-                            </button>
-                        </div>
                     </div>
                     <div class="program-card__body">
-                        <div class="program-card__title">Царская</div>
-                        <div class="program-card__desc">Отличие: большое этапное и более насыщенная программа наполнения программ</div>
+                        <div class="program-card__title">Премиум</div>
+                        <div class="program-card__desc">Премиальное парение + СПА с медовой маской и мытьем головы</div>
                         <div class="program-card__meta">
                             <div class="meta-item">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#9d8f7b" stroke-width="1.2"/><path d="M6 3v3l2.5 1.5" stroke="#9d8f7b" stroke-width="1.2" stroke-linecap="round"/></svg>
-                                <span>2,5 часа</span>
+                                <span>4,5 часа</span>
                             </div>
                             <div class="meta-item">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2" stroke="#9d8f7b" stroke-width="1.2"/><path d="M1 11c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#9d8f7b" stroke-width="1.2"/></svg>
-                                <span>11 этапов</span>
+                                <span>13 этапов</span>
                             </div>
                             <div class="meta-item">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2" stroke="#9d8f7b" stroke-width="1.2"/><path d="M1 11c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#9d8f7b" stroke-width="1.2"/></svg>
-                                <span>до 3–10 чел.</span>
+                                <span>для 2 гостей</span>
                             </div>
                         </div>
                         <div class="program-card__price-row">
-                            <span class="price-main">1005 BYN</span>
-                            <span class="price-per">/ 395 BYN на гостя</span>
+                            <span class="price-main">1060 BYN</span>
+                            <span class="price-per">/ 530 BYN за гостя</span>
                         </div>
                         <div class="program-card__actions">
                             <button class="btn-book">Забронировать</button>
@@ -865,40 +951,65 @@
                     </div>
                 </div>
 
-                <!-- Card 4 -->
+                <!-- Card 4: VOLKI Премиум Плюс -->
                 <div class="program-card">
                     <div class="program-card__img">
                         <div class="program-card__img-bg"></div>
-                        <!-- ЗАГЛУШКА: program-tsarskaya-4.jpg — парная с берёзовыми вениками -->
-                        <div class="program-card__nav">
-                            <button class="card-nav-btn">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M8 2L4 6l4 4" stroke="#fff" stroke-width="1.5"/></svg>
-                            </button>
-                            <button class="card-nav-btn">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4 2l4 4-4 4" stroke="#fff" stroke-width="1.5"/></svg>
-                            </button>
-                        </div>
+                        <div class="program-card__badge">Премиум</div>
                     </div>
                     <div class="program-card__body">
-                        <div class="program-card__title">Царская</div>
-                        <div class="program-card__desc">Отличие: большое этапное и более насыщенная программа наполнения программ</div>
+                        <div class="program-card__title">VOLKI Премиум Плюс</div>
+                        <div class="program-card__desc">Максимальная программа: парение + хаммам + массаж + чан-джакузи</div>
                         <div class="program-card__meta">
                             <div class="meta-item">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#9d8f7b" stroke-width="1.2"/><path d="M6 3v3l2.5 1.5" stroke="#9d8f7b" stroke-width="1.2" stroke-linecap="round"/></svg>
-                                <span>2,5 часа</span>
+                                <span>6 часов</span>
                             </div>
                             <div class="meta-item">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2" stroke="#9d8f7b" stroke-width="1.2"/><path d="M1 11c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#9d8f7b" stroke-width="1.2"/></svg>
-                                <span>11 этапов</span>
+                                <span>17 этапов</span>
                             </div>
                             <div class="meta-item">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2" stroke="#9d8f7b" stroke-width="1.2"/><path d="M1 11c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#9d8f7b" stroke-width="1.2"/></svg>
-                                <span>до 3–10 чел.</span>
+                                <span>для 2 гостей</span>
                             </div>
                         </div>
                         <div class="program-card__price-row">
-                            <span class="price-main">1005 BYN</span>
-                            <span class="price-per">/ 395 BYN на гостя</span>
+                            <span class="price-main">2000 BYN</span>
+                            <span class="price-per">/ 1000 BYN за гостя</span>
+                        </div>
+                        <div class="program-card__actions">
+                            <button class="btn-book">Забронировать</button>
+                            <button class="btn-more">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Индивидуальная -->
+                <div class="program-card">
+                    <div class="program-card__img">
+                        <div class="program-card__img-bg"></div>
+                        <div class="program-card__badge">Индивидуально</div>
+                    </div>
+                    <div class="program-card__body">
+                        <div class="program-card__title">Индивидуальная в Шале</div>
+                        <div class="program-card__desc">Эксклюзивная программа для одного гостя с полным циклом процедур</div>
+                        <div class="program-card__meta">
+                            <div class="meta-item">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#9d8f7b" stroke-width="1.2"/><path d="M6 3v3l2.5 1.5" stroke="#9d8f7b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                                <span>4 часа</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2" stroke="#9d8f7b" stroke-width="1.2"/><path d="M1 11c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#9d8f7b" stroke-width="1.2"/></svg>
+                                <span>17 этапов</span>
+                            </div>
+                            <div class="meta-item">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="4" r="2" stroke="#9d8f7b" stroke-width="1.2"/><path d="M1 11c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#9d8f7b" stroke-width="1.2"/></svg>
+                                <span>1 гость</span>
+                            </div>
+                        </div>
+                        <div class="program-card__price-row">
+                            <span class="price-main">1200 BYN</span>
                         </div>
                         <div class="program-card__actions">
                             <button class="btn-book">Забронировать</button>
@@ -1010,75 +1121,235 @@
             </div>
 
             <div class="services-list">
+                <h3 class="service-category">Парная</h3>
                 <div class="service-row">
                     <div>
-                        <div class="service-name">Ладка металлическими вениками</div>
-                        <div class="service-desc">активное парение с дубовым прогревом тела используется во время интенсивных программ</div>
-                    </div>
-                    <div class="service-price">03 BYN</div>
-                </div>
-                <div class="service-row">
-                    <div>
-                        <div class="service-name">Ладка металлическими вениками</div>
-                        <div class="service-desc">активное парение с дубовым прогревом тела используется во время интенсивных программ</div>
-                    </div>
-                    <div class="service-price">05 BYN</div>
-                </div>
-                <div class="service-row">
-                    <div>
-                        <div class="service-name">Ладка металлическими вениками</div>
-                        <div class="service-desc">активное парение с дубовым прогревом тела используется во время интенсивных программ</div>
-                    </div>
-                    <div class="service-price">05 BYN</div>
-                </div>
-                <div class="service-row">
-                    <div>
-                        <div class="service-name">Ладка металлическими вениками</div>
-                        <div class="service-desc">активное парение с дубовым прогревом тела используется во время интенсивных программ</div>
-                    </div>
-                    <div class="service-price">05 BYN</div>
-                </div>
-                <div class="service-row">
-                    <div>
-                        <div class="service-name">Ладка металлическими вениками</div>
-                        <div class="service-desc">активное парение с дубовым прогревом тела используется во время интенсивных программ</div>
+                        <div class="service-name">Холодное парение</div>
                     </div>
                     <div class="service-price">55 BYN</div>
                 </div>
                 <div class="service-row">
                     <div>
-                        <div class="service-name">Ладка металлическими вениками</div>
-                        <div class="service-desc">активное парение с дубовым прогревом тела используется во время интенсивных программ</div>
+                        <div class="service-name">Веничное парение (классическое, 1 заход)</div>
                     </div>
-                    <div class="service-price">03 BYN</div>
+                    <div class="service-price">160 BYN</div>
                 </div>
                 <div class="service-row">
                     <div>
-                        <div class="service-name">Ладка металлическими вениками</div>
-                        <div class="service-desc">активное парение с дубовым прогревом тела используется во время интенсивных программ</div>
+                        <div class="service-name">Парение Сибирское</div>
+                        <div class="service-desc">активное парение с кратным проливанием холодной воды во время интенсивного прогрева</div>
                     </div>
-                    <div class="service-price">03 BYN</div>
+                    <div class="service-price">220 BYN</div>
                 </div>
                 <div class="service-row">
                     <div>
-                        <div class="service-name">Лада А металлическими вениками</div>
-                        <div class="service-desc">активное парение с дубовым прогревом тела используется во время активных программ восстановления</div>
+                        <div class="service-name">Парение Премиум авторское (20 мин)</div>
                     </div>
-                    <div class="service-price">03 BYN</div>
+                    <div class="service-price">220 BYN</div>
                 </div>
                 <div class="service-row">
                     <div>
-                        <div class="service-name">Ладка металлическими веникам и</div>
-                        <div class="service-desc">активное парение с дубовым прогревом тела используется во время активных программ восстановления</div>
+                        <div class="service-name">Парение премиальное в 2 захода</div>
+                        <div class="service-desc">с растиркой горячим березовым веником на банном полке, контрастные процедуры (30 мин)</div>
                     </div>
-                    <div class="service-price">03 BYN</div>
+                    <div class="service-price">220 BYN</div>
                 </div>
                 <div class="service-row">
                     <div>
-                        <div class="service-name">Ладка металлическими вениками</div>
-                        <div class="service-desc">активное парение с дубовым прогревом тела используется во время активных программ восстановления</div>
+                        <div class="service-name">Веничное укутывание</div>
                     </div>
-                    <div class="service-price">03 BYN</div>
+                    <div class="service-price">185 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Растирка березовым веником на банном полке</div>
+                    </div>
+                    <div class="service-price">75 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Прогрев ног на банном полке с применением дубовых веников</div>
+                    </div>
+                    <div class="service-price">75 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Холодное дыхание с ароматом лимона/грейпфрута</div>
+                        <div class="service-desc">холодный веник (пихта/береза) + лед + лимон или грейпфрут</div>
+                    </div>
+                    <div class="service-price">50 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Минеральные контрастные процедуры</div>
+                    </div>
+                    <div class="service-price">30 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Замороженный пихтовый веник под лицо</div>
+                        <div class="service-desc">по сезонности</div>
+                    </div>
+                    <div class="service-price">30 BYN</div>
+                </div>
+
+                <h3 class="service-category">Массажи</h3>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Массаж классический 50 мин</div>
+                    </div>
+                    <div class="service-price">125 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Массаж классический 30 мин</div>
+                    </div>
+                    <div class="service-price">85 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Массаж классический 15 мин</div>
+                    </div>
+                    <div class="service-price">55 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Массаж икроножный 15 мин</div>
+                    </div>
+                    <div class="service-price">55 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Массаж шейно-воротниковой зоны 15 мин</div>
+                    </div>
+                    <div class="service-price">55 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Ладка металлическими вениками 15 мин</div>
+                    </div>
+                    <div class="service-price">55 BYN</div>
+                </div>
+
+                <h3 class="service-category">Подстил</h3>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Подстил на полок из пихтовых веников</div>
+                        <div class="service-desc">сезонность</div>
+                    </div>
+                    <div class="service-price">180 BYN</div>
+                </div>
+
+                <h3 class="service-category">Хаммам</h3>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Хаммам комплекс Стандарт</div>
+                    </div>
+                    <div class="service-price">220 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Хаммам комплекс Премиум</div>
+                    </div>
+                    <div class="service-price">270 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Мыльный массаж головы</div>
+                    </div>
+                    <div class="service-price">70 BYN</div>
+                </div>
+
+                <h3 class="service-category">Скрабы соляные</h3>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Скраб соляной Лаванда</div>
+                    </div>
+                    <div class="service-price">60 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Скраб соляной Инжир и ирис</div>
+                    </div>
+                    <div class="service-price">60 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Скраб соляной Малина</div>
+                    </div>
+                    <div class="service-price">60 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Скраб соляной Ветивер</div>
+                    </div>
+                    <div class="service-price">60 BYN</div>
+                </div>
+
+                <h3 class="service-category">Скрабы сахарные</h3>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Скраб сахарный Шоколад</div>
+                    </div>
+                    <div class="service-price">60 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Скраб сахарный Ледяной кокос</div>
+                    </div>
+                    <div class="service-price">60 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Скраб сахарный Золотой абрикос</div>
+                    </div>
+                    <div class="service-price">60 BYN</div>
+                </div>
+
+                <h3 class="service-category">Скраб натуральный</h3>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Скраб натуральный Апельсин + корица (сахарный)</div>
+                    </div>
+                    <div class="service-price">75 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Скраб натуральный Миндаль + вишня (сахарный)</div>
+                    </div>
+                    <div class="service-price">75 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Скраб натуральный Шоколад (сахарный)</div>
+                    </div>
+                    <div class="service-price">75 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Скраб натуральный Пихтовый (соляной)</div>
+                    </div>
+                    <div class="service-price">75 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Скраб натуральный Мятный (соляной)</div>
+                    </div>
+                    <div class="service-price">75 BYN</div>
+                </div>
+
+                <h3 class="service-category">Маска для тела</h3>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Шоколадное обёртывание</div>
+                    </div>
+                    <div class="service-price">140 BYN</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Медовая маска (спина, живот)</div>
+                    </div>
+                    <div class="service-price">140 BYN</div>
                 </div>
             </div>
         </div>
@@ -1105,6 +1376,22 @@
     </footer>
 
 </main>
+
+<!-- MODAL -->
+<div class="modal" id="programModal">
+    <div class="modal__content">
+        <div class="modal__header">
+            <h2 class="modal__title" id="modalTitle">Программа</h2>
+            <div class="modal__subtitle" id="modalSubtitle"></div>
+            <button class="modal__close" id="modalClose">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M12 4L4 12M4 4l8 8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        <div class="modal__body" id="modalBody"></div>
+    </div>
+</div>
 
 <script>
     // Mobile menu toggle
@@ -1155,6 +1442,451 @@
             sidebar.classList.remove('open');
         });
     });
+
+    // Program details modal
+    const modal = document.getElementById('programModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
+
+    const programs = {
+        'tsarskaya': {
+            title: 'Царская',
+            price: '1065 BYN всего / 355 BYN за гостя',
+            meta: '3,5 часа | 10 этапов | Для трёх гостей',
+            extra: '355 BYN за доп. гостя и + 45 минут к программе',
+            stages: [
+                {
+                    title: 'Первый пар',
+                    items: [
+                        'Аромапар на травах',
+                        'Прогревание ног вениками из канадского дуба'
+                    ]
+                },
+                {
+                    title: 'Основное парение',
+                    items: [
+                        'Классическое парение дубовыми и березовыми вениками (спина, ноги)',
+                        'Контрастные процедуры (проливание холодной водой или контраст в холодной купели)',
+                        'Классическое парение дубовыми и березовыми вениками (живот, ноги)',
+                        'Контрастные процедуры (проливание холодной водой или контраст в холодной купели)'
+                    ]
+                },
+                {
+                    title: 'Финальный пар',
+                    items: [
+                        'Догрев — музыкальная медитация с использованием ароматных веников'
+                    ]
+                },
+                {
+                    title: 'СПА (в парной)',
+                    items: [
+                        'Солевой скраб всего тела',
+                        'Массаж головы с использованием сезонного веника'
+                    ]
+                },
+                {
+                    title: 'Угощения к банному столу',
+                    items: [
+                        'Банный стол с фермерскими продуктами (мед, травяной чай по древним рецептам Алтая, сушки, пряники, сушеная клюква)',
+                        'Экскурсия по агроусадьбе* (*при отсутствии других записей)'
+                    ]
+                }
+            ],
+            note: 'Погружение в атмосферу древнего Алтая. К программе можно добавлять дополнительные услуги, например, массаж или чан-джакузи. *последовательность этапов программы может быть изменена на усмотрение специалиста'
+        },
+        'sibirskiy': {
+            title: 'Сибирский Эдем',
+            price: '1060 BYN всего / 530 BYN за гостя',
+            meta: '3,5 часа | 11 этапов | Для двух гостей',
+            extra: '530 BYN за доп. гостя и + 45 минут к программе',
+            stages: [
+                {
+                    title: 'Первый пар',
+                    items: [
+                        'Аромапар на травах',
+                        'Прогревание ног вениками из канадского дуба'
+                    ]
+                },
+                {
+                    title: 'Основное парение',
+                    items: [
+                        'Премиальное парение дубовыми и березовыми вениками (спина, ноги)',
+                        'Омовение настоем березы и дуба',
+                        'Премиальное парение дубовыми и березовыми вениками (живот, ноги)',
+                        'Контрастные процедуры (проливание холодной водой или контраст в холодной купели)',
+                        'Растирка березовым веником на ярком пару',
+                        'Охлаждение тела льняным полотном',
+                        'Релакс-массаж даосскими вениками в парной'
+                    ]
+                },
+                {
+                    title: 'Финальный пар',
+                    items: [
+                        'Догрев — музыкальная медитация с использованием ароматных веников и трав'
+                    ]
+                },
+                {
+                    title: 'Угощения к банному столу',
+                    items: [
+                        'Банный стол с фермерскими продуктами (мед, травяной чай по древним рецептам Алтая, сушки, пряники, сушеная клюква)',
+                        'Экскурсия по агроусадьбе* (*при отсутствии других записей)'
+                    ]
+                }
+            ]
+        },
+        'premium': {
+            title: 'Премиум',
+            price: '1060 BYN всего / 530 BYN за гостя',
+            meta: '4,5 часа | 13 этапов | Для двух гостей',
+            extra: '530 BYN за доп. гостя и + 50 минут к программе',
+            stages: [
+                {
+                    title: 'Первый пар',
+                    items: [
+                        'Аромапар на травах',
+                        'Прогревание ног вениками из канадского дуба'
+                    ]
+                },
+                {
+                    title: 'Основное парение',
+                    items: [
+                        'Премиальное парение дубовыми и березовыми вениками (спина, ноги)',
+                        'Омовение настоем березы и дуба',
+                        'Премиальное парение дубовыми и березовыми вениками (живот, ноги)',
+                        'Контрастные процедуры (проливание холодной водой или контраст в холодной купели)',
+                        'Растирка березовым веником на ярком пару',
+                        'Охлаждение тела льняным полотном'
+                    ]
+                },
+                {
+                    title: 'Финальный пар',
+                    items: [
+                        'Догрев — музыкальная медитация с использованием ароматных веников и трав'
+                    ]
+                },
+                {
+                    title: 'СПА (в парной)',
+                    items: [
+                        'Солевое скрабирование всего тела',
+                        'Медовая маска для тела',
+                        'Мытье головы черным мылом с массажем'
+                    ]
+                },
+                {
+                    title: 'Угощения к банному столу',
+                    items: [
+                        'Банный стол с фермерскими продуктами (мед, травяной чай по древним рецептам Алтая, сушки, пряники, сушеная клюква)',
+                        'Экскурсия по агроусадьбе* (*при отсутствии других записей)'
+                    ]
+                }
+            ]
+        },
+        'volki-plus': {
+            title: 'VOLKI Премиум Плюс',
+            price: '2000 BYN всего / 1000 BYN за гостя',
+            meta: '6 часов | 17 этапов | Для двух гостей',
+            extra: '1000 BYN за доп. гостя и + 120 минут к программе',
+            stages: [
+                {
+                    title: 'Первый пар',
+                    items: [
+                        'Аромапар на травах',
+                        'Прогревание ног вениками из канадского дуба'
+                    ]
+                },
+                {
+                    title: 'Основное парение',
+                    items: [
+                        'Эксклюзивное парение в 4 руки с укрыванием головы охлажденными пихтовыми* вениками (спина, ноги)',
+                        'Омовение всего тела фирменным настоем из трав',
+                        'Массаж стоп',
+                        'Эксклюзивное парение в 4 руки с укрыванием головы охлажденными пихтовыми* вениками (живот, ноги)',
+                        'Контрастные процедуры (проливание холодной водой или контраст в холодной травяной купели)',
+                        'Яркие растирки березовыми или пихтовыми* вениками на высоком пару',
+                        'Охлаждение тела льняным полотном',
+                        'Релакс-массаж даосскими вениками в парной',
+                        'Холодное парение на ароматном сеновале или в парной',
+                        'Отдых в теплом травяном чане-джакузи с массажем головы'
+                    ]
+                },
+                {
+                    title: 'Финальный пар',
+                    items: [
+                        'Финальный догрев мягким паром с ароматами трав'
+                    ]
+                },
+                {
+                    title: 'Хаммам',
+                    items: [
+                        'Авторская программа в хаммаме'
+                    ]
+                },
+                {
+                    title: 'Массаж',
+                    items: [
+                        'Расслабляющий массаж для каждого гостя 50 мин'
+                    ]
+                },
+                {
+                    title: 'Угощения к банному столу',
+                    items: [
+                        'Банный стол с фермерскими продуктами (мед, травяной чай по древним рецептам Алтая, сушки, пряники, сушеная клюква)',
+                        'Горячее угощение из агроусадьбы',
+                        'Экскурсия по агроусадьбе (*по сезонности, при отсутствии других записей)'
+                    ]
+                }
+            ]
+        },
+        'individual': {
+            title: 'Индивидуальная в Шале',
+            price: '1200 BYN',
+            meta: '4 часа | 17 этапов | Для одного гостя',
+            stages: [
+                {
+                    title: 'Первый пар',
+                    items: [
+                        'Аромапар на травах',
+                        'Прогревание ног вениками из канадского дуба'
+                    ]
+                },
+                {
+                    title: 'Основное парение',
+                    items: [
+                        'Эксклюзивное парение в 4 руки с укрыванием головы охлажденными пихтовыми* вениками (спина, ноги)',
+                        'Омовение всего тела фирменным настоем из трав',
+                        'Массаж стоп',
+                        'Эксклюзивное парение в 4 руки с укрыванием головы охлажденными пихтовыми* вениками (живот, ноги)',
+                        'Контрастные процедуры (проливание холодной водой или контраст в холодной травяной купели)',
+                        'Яркие растирки березовыми или пихтовыми* вениками на высоком пару',
+                        'Охлаждение тела льняным полотном',
+                        'Релакс-массаж даосскими вениками в парной',
+                        'Холодное парение на ароматном сеновале или в парной',
+                        'Отдых в теплом травяном чане-джакузи с массажем головы'
+                    ]
+                },
+                {
+                    title: 'Финальный пар',
+                    items: [
+                        'Финальный догрев мягким паром с ароматами трав'
+                    ]
+                },
+                {
+                    title: 'Хаммам',
+                    items: [
+                        'Авторская программа в хаммаме'
+                    ]
+                },
+                {
+                    title: 'Массаж',
+                    items: [
+                        'Расслабляющий массаж 50 мин'
+                    ]
+                },
+                {
+                    title: 'Угощения к банному столу',
+                    items: [
+                        'Банный стол с фермерскими продуктами (мед, травяной чай по древним рецептам Алтая, сушки, пряники, сушеная клюква)',
+                        'Горячее угощение из агроусадьбы',
+                        'Экскурсия по агроусадьбе (*по сезонности, при отсутствии других записей)'
+                    ]
+                }
+            ]
+        }
+    };
+
+    function openProgramModal(programKey) {
+        const program = programs[programKey];
+        if (!program) return;
+
+        modalTitle.textContent = program.title;
+        modalSubtitle.innerHTML = `<span>${program.meta}</span>`;
+
+        let stagesHTML = `
+            <div class="program-info">
+                <div class="program-info__price">${program.price}</div>
+                <div class="program-info__meta">${program.extra || ''}</div>
+            </div>
+            <div class="program-stages">
+        `;
+
+        program.stages.forEach(stage => {
+            stagesHTML += `
+                <div class="stage-block">
+                    <h3 class="stage-block__title">${stage.title}</h3>
+                    <div class="stage-list">
+                        ${stage.items.map(item => `<div class="stage-item">${item}</div>`).join('')}
+                    </div>
+                </div>
+            `;
+        });
+
+        stagesHTML += '</div>';
+
+        if (program.note) {
+            stagesHTML += `<div class="program-note">${program.note}</div>`;
+        }
+
+        modalBody.innerHTML = stagesHTML;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeProgramModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    modalClose.addEventListener('click', closeProgramModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeProgramModal();
+    });
+
+    // Attach event listeners to "Подробнее" buttons
+    document.querySelectorAll('.btn-more').forEach((btn, index) => {
+        const programKeys = ['tsarskaya', 'sibirskiy', 'premium', 'volki-plus', 'individual'];
+        btn.addEventListener('click', () => openProgramModal(programKeys[index]));
+    });
+
+    // Program filtering logic
+    const allPrograms = [
+        {
+            key: 'tsarskaya',
+            type: 'classic',
+            guests: 3,
+            element: document.querySelectorAll('.program-card')[0]
+        },
+        {
+            key: 'sibirskiy',
+            type: 'premium',
+            guests: 2,
+            element: document.querySelectorAll('.program-card')[1]
+        },
+        {
+            key: 'premium',
+            type: 'premium-spa',
+            guests: 2,
+            element: document.querySelectorAll('.program-card')[2]
+        },
+        {
+            key: 'volki-plus',
+            type: 'premium-spa',
+            guests: 2,
+            element: document.querySelectorAll('.program-card')[3]
+        },
+        {
+            key: 'individual',
+            type: 'premium-spa',
+            guests: 1,
+            element: document.querySelectorAll('.program-card')[4]
+        }
+    ];
+
+    let currentTypeFilter = 'all';
+    let currentGuestFilter = 'all';
+
+    function filterPrograms() {
+        let visibleCount = 0;
+
+        allPrograms.forEach(program => {
+            let show = true;
+
+            // Type filter
+            if (currentTypeFilter !== 'all') {
+                if (currentTypeFilter === 'classic' && program.type !== 'classic') show = false;
+                if (currentTypeFilter === 'premium' && program.type !== 'premium') show = false;
+                if (currentTypeFilter === 'premium-spa' && program.type !== 'premium-spa') show = false;
+            }
+
+            // Guest filter
+            if (currentGuestFilter !== 'all') {
+                if (currentGuestFilter === '1' && program.guests !== 1) show = false;
+                if (currentGuestFilter === '2' && program.guests !== 2) show = false;
+                if (currentGuestFilter === '3+' && program.guests < 3) show = false;
+            }
+
+            if (show) {
+                program.element.style.display = 'block';
+                visibleCount++;
+            } else {
+                program.element.style.display = 'none';
+            }
+        });
+
+        document.querySelector('.results-count').textContent = `Найдено: ${visibleCount} ${visibleCount === 1 ? 'программа' : visibleCount < 5 ? 'программы' : 'программ'}`;
+    }
+
+    // Type filter tabs
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            const group = this.closest('.filter-tabs');
+            group.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+
+            const text = this.textContent.trim();
+            if (text === 'Все') currentTypeFilter = 'all';
+            else if (text === 'Классическая') currentTypeFilter = 'classic';
+            else if (text === 'Премиальное') currentTypeFilter = 'premium';
+            else if (text === 'СПА-Хаммам') currentTypeFilter = 'premium-spa';
+
+            filterPrograms();
+        });
+    });
+
+    // Guest counter logic
+    const counterBtns = document.querySelectorAll('.counter-btn');
+    const counterVals = document.querySelectorAll('.counter-val');
+    let selectedGuests = 'all';
+
+    counterBtns.forEach((btn, index) => {
+        btn.addEventListener('click', function() {
+            // Reset all counter vals and buttons
+            counterVals.forEach(val => {
+                val.style.background = 'transparent';
+                val.style.border = '1px solid #ccc';
+                val.style.color = '#888';
+            });
+            counterBtns.forEach(b => b.classList.remove('active'));
+
+            // index 0: minus before 1
+            // index 1: plus after 1
+            // index 2: minus before 2
+            // index 3: plus after 2
+            // index 4: button "3+"
+
+            if (index === 0) {
+                // Minus before 1 - reset filter
+                selectedGuests = 'all';
+            } else if (index === 1) {
+                // Plus after 1 - select 1 guest
+                selectedGuests = '1';
+                counterVals[0].style.background = 'var(--dark-alt)';
+                counterVals[0].style.border = 'none';
+                counterVals[0].style.color = '#fff';
+            } else if (index === 2) {
+                // Minus before 2 - select 1 guest
+                selectedGuests = '1';
+                counterVals[0].style.background = 'var(--dark-alt)';
+                counterVals[0].style.border = 'none';
+                counterVals[0].style.color = '#fff';
+            } else if (index === 3) {
+                // Plus after 2 - select 2 guests
+                selectedGuests = '2';
+                counterVals[1].style.background = 'var(--dark-alt)';
+                counterVals[1].style.border = 'none';
+                counterVals[1].style.color = '#fff';
+            } else if (index === 4) {
+                // Button "3+"
+                selectedGuests = '3+';
+                this.classList.add('active');
+            }
+
+            currentGuestFilter = selectedGuests;
+            filterPrograms();
+        });
+    });
+
 </script>
 </body>
 </html>
